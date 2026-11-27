@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Repo SEO"
+  short_description: "Improve GitHub discovery and repository readiness"
+  default_prompt: "Use $github-repo-seo to audit this GitHub repository and prepare evidence-backed improvements."

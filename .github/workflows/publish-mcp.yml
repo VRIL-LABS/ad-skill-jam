@@ -2,6 +2,11 @@ name: Publish to the MCP Registry
 
 on:
   workflow_dispatch:
+    inputs:
+      validate_only:
+        description: Verify the metadata and release bundle without publishing
+        type: boolean
+        default: false
 
 permissions: {}
 
@@ -34,6 +39,7 @@ jobs:
           curl --fail --silent --show-error --location --retry 3 "$url" --output "$bundle"
           echo "$digest  $bundle" | sha256sum --check
       - name: Publish with GitHub OIDC
+        if: ${{ !inputs.validate_only }}
         run: |
           "$RUNNER_TEMP/mcp-publisher" login github-oidc
           "$RUNNER_TEMP/mcp-publisher" publish server.json

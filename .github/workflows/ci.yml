@@ -37,17 +37,35 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    concurrency:
+      group: release-${{ github.ref }}
+      cancel-in-progress: false
     permissions:
       contents: write
     steps:
+      - name: Check for an existing published release
+        id: release-state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          published=$(gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/releases" |
+            jq -r --arg tag "$GITHUB_REF_NAME" 'any(.[][]; .tag_name == $tag and .draft == false)')
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+          if [[ "$published" == true ]]; then
+            echo "Release $GITHUB_REF_NAME already exists."
+          fi
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.release-state.outputs.published == 'false'
         with:
           persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: steps.release-state.outputs.published == 'false'
         with:
           node-version: '24'
           package-manager-cache: false
       - name: Prepare release notes and MCP SBOM
+        if: steps.release-state.outputs.published == 'false'
         shell: bash
         run: |
           [[ "$GITHUB_REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
@@ -64,6 +82,7 @@ jobs:
           npm ci --ignore-scripts
           npm run bundle
       - name: Publish GitHub release
+        if: steps.release-state.outputs.published == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash

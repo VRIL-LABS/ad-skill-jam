@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup and usage questions
+    url: https://github.com/VRIL-LABS/ad-skill-jam/discussions
+    about: Ask about installing the packs, choosing a skill, or using the local MCP.
+  - name: Report a vulnerability privately
+    url: https://github.com/VRIL-LABS/ad-skill-jam/security/advisories/new
+    about: Share vulnerability details through GitHub private reporting.

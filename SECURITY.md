@@ -1,6 +1,6 @@
 # Security policy
 
-Report vulnerabilities affecting the current default branch privately. On GitHub, open **Security → Advisories → Report a vulnerability** if available. If private reporting is unavailable, contact a repository maintainer privately. You can use a public issue to request a private contact channel and omit the vulnerability details.
+Use [GitHub private vulnerability reporting](https://github.com/VRIL-LABS/ad-skill-jam/security/advisories/new) for issues affecting the default branch or a published release. Include the affected revision or release tag. If private reporting is unavailable, use the [support discussion](https://github.com/VRIL-LABS/ad-skill-jam/discussions) to ask for a private contact channel and omit the vulnerability details.
 
 Include the affected skill or tool, the revision or version, the impact, and steps to reproduce with synthetic data. Keep tokens, account identifiers, and private campaign data out of reports. Coordinate public disclosure with the maintainers.
 

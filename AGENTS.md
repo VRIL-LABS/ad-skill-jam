@@ -4,6 +4,8 @@
 
 Start with the [repository README](README.md) to choose a platform or run the local MCP. Use the [contribution guide](CONTRIBUTING.md) for the checks to run before submitting a change.
 
+Use the [GitHub repository maintenance skill](.github/skills/github-repo-seo/SKILL.md) for topics, community health files, agent configuration, and GitHub Actions. Public clones use the tracked [source provenance](ad-skill-jam/_shared/provenance/SOURCES.md) to locate upstream material when local reference checkouts are unavailable.
+
 ## Find the right pack
 
 Read the platform README first. It routes tasks to a `SKILL.md` and links to the platform API ledger, source provenance, and evals. Follow the skill's references before changing a platform claim.
