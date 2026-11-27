@@ -163,3 +163,9 @@ Help keep the playbooks and platform references up to date.
 ## More from VRIL LABS
 
 Ad Skill Jam grew out of the original [@VRIL-LABS/skill-jam](https://github.com/VRIL-LABS/skill-jam), a broader collection of agent skills.
+
+---
+
+<p align="center">
+  <sub>Built by <strong>VRIL-LABS</strong> · Ancient Knowledge · Future Technology</sub>
+</p>
