@@ -97,6 +97,8 @@ Open the downloaded bundle or the local `dist/ad-skill-jam.mcpb` in your client,
 
 The build installs pinned runtime dependencies in a staging directory, starts the staged server, and checks the manifest with the pinned MCPB CLI before packing. The bundle includes the skill catalog and no account credentials. [MCPB specification and tooling](https://github.com/modelcontextprotocol/mcpb)
 
+Local builds also write `dist/ad-skill-jam-mcp.sbom.json` from the staged runtime dependencies. For tagged releases built with attestation support, download the bundle and run `gh attestation verify ./ad-skill-jam.mcpb --repo VRIL-LABS/ad-skill-jam` to verify where it was built. The existing v1.1.0 release can be checked against the SHA-256 in its [MCP Registry entry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.VRIL-LABS%2Fad-skill-jam/versions/1.1.0). [GitHub attestation verification](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations)
+
 Leave **Local account settings** blank to start without an account. For campaign reads, set it to your local account settings file and supply the credential variables to the desktop process using its supported environment or secret store. Use read-scoped accounts where available, review the registered tools, and restrict access to the files and provider network endpoints you need. See [account configuration](#connect-an-existing-account).
 
 ## Connect an existing account
@@ -186,5 +188,13 @@ npx --yes @modelcontextprotocol/inspector@2.16.0 --cli node gateway/stdio.ts --m
 ```
 
 A live provider check requires a read-authorized account. After setup, make one inventory request with `limit: 1` using the configured alias.
+
+### Try a credential-free walkthrough
+
+1. Start the server with the [local setup](#prepare-the-local-server) and leave account settings blank.
+2. Call `adjam_health_check` with `{}` and look for `ready` and `unconfigured`.
+3. Call `adjam_get_platform_setup` with `{"platform":"apple"}` to see the campaign tool name and official instructions for connecting that platform.
+
+These calls verify the local server. The automated provider tests use synthetic API responses. For a live check, follow the account setup and request one inventory row.
 
 Remote Streamable HTTP, hosted OAuth, managed credential refresh, spend proposals and execution, and long-running reports remain in the repository's MCP roadmap. This package runs locally under the MCP user's OS account.

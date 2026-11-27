@@ -16,10 +16,13 @@ if (!npm) throw new Error('Run this command with npm run bundle.');
 // --ignore-scripts and require no lifecycle scripts.
 const npmEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) => key.toLowerCase() !== 'npm_config_allow_scripts'));
 
-function runNpm(args, cwd) {
-  const result = spawnSync(process.execPath, [npm, ...args], { cwd, env: npmEnv, stdio: 'inherit' });
+function runNpm(args, cwd, captureOutput = false) {
+  const result = spawnSync(process.execPath, [npm, ...args], {
+    cwd, env: npmEnv, encoding: 'utf8', stdio: ['inherit', captureOutput ? 'pipe' : 'inherit', 'inherit']
+  });
   if (result.error) throw result.error;
   if (result.status !== 0) throw new Error('npm ' + args[0] + ' failed.');
+  return result.stdout;
 }
 
 function copyTree(source, destination, extensions) {
@@ -51,10 +54,15 @@ try {
   if (existsSync(marketing)) {
     copyTree(marketing, join(stagedPack, 'marketing'), ['.md', '.json', '.py', '.sh', '.ps1']);
   }
-  for (const entry of ['package.json', 'package-lock.json', 'README.md', 'accounts.example.json', 'gateway', 'servers', 'shared', 'skills-bridge']) {
+  for (const entry of ['package-lock.json', 'README.md', 'accounts.example.json', 'gateway', 'servers', 'shared', 'skills-bridge']) {
     copyTree(join(mcp, entry), join(stagedMcp, entry), ['.json', '.md', '.ts']);
   }
+  const runtimePackage = JSON.parse(readFileSync(join(mcp, 'package.json'), 'utf8'));
+  delete runtimePackage.devDependencies;
+  writeFileSync(join(stagedMcp, 'package.json'), JSON.stringify(runtimePackage, null, 2) + '\n');
   runNpm(['ci', '--omit=dev', '--ignore-scripts'], stagedMcp);
+  const sbom = runNpm(['sbom', '--omit=dev', '--sbom-format', 'cyclonedx'], stagedMcp, true);
+  JSON.parse(sbom);
 
   const client = new Client({ name: 'adjam-bundle-check', version: manifest.version });
   try {
@@ -75,6 +83,7 @@ try {
   const tool = ['exec', '--yes', '--ignore-scripts', '--package=@anthropic-ai/mcpb@2.1.2', '--', 'mcpb'];
   runNpm([...tool, 'validate', join(stage, 'manifest.json')], mcp);
   runNpm([...tool, 'pack', stage, join(output, 'ad-skill-jam.mcpb')], mcp);
+  writeFileSync(join(output, 'ad-skill-jam-mcp.sbom.json'), sbom);
 } finally {
   // Remove only the staging directory allocated inside dist.
   if (dirname(realpathSync(stage)) === realpathSync(output)) {

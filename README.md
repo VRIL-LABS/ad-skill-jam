@@ -4,13 +4,13 @@
 
 [![12 ad platforms](https://img.shields.io/badge/platforms-12-66439c?style=flat)](#pick-a-platform)
 [![90 agent skills](https://img.shields.io/badge/skills-90-66439c?style=flat)](ad-skill-jam/README.md)
-[![183 eval cases](https://img.shields.io/badge/eval_cases-183-66439c?style=flat)](ad-skill-jam/_shared/evals/README.md)
+[![183 eval fixtures](https://img.shields.io/badge/eval_fixtures-183-66439c?style=flat)](ad-skill-jam/_shared/evals/README.md)
 [![Read-only MCP](https://img.shields.io/badge/MCP-read--only-4f536f?style=flat)](ad-skill-jam/mcp/README.md)
 
 **Give your AI agent a paid media playbook for 12 ad platforms.** Ad Skill Jam includes skills for Google Ads, Meta Ads, YouTube Ads, LinkedIn Ads, Reddit Ads, TikTok Ads, X Ads, Snapchat Ads, Pinterest Ads, Microsoft Advertising, Apple Ads, and Amazon Ads. Use them to audit accounts, plan campaigns, and trace drops in conversions back to the evidence.
 
 - **See where the guidance comes from.** We combined workflows from ad tools and playbooks, checked platform claims against official docs, and dated the source notes. [Source provenance](ad-skill-jam/_shared/provenance/SOURCES.md)
-- **See how a workflow should behave.** Eval cases spell out what the agent should do when evidence is missing or someone asks it to spend without approval. [Eval guide](ad-skill-jam/_shared/evals/README.md)
+- **See how a workflow should behave.** Eval fixtures spell out what the agent should do when evidence is missing or someone asks it to spend without approval. [Eval guide](ad-skill-jam/_shared/evals/README.md) · [Sample behavior results](ad-skill-jam/_shared/evals/README.md#sample-behavior-check)
 - **Start with an export.** Use a redacted report or connect the local MCP for read-only campaign inventory. The playbooks put you in charge of approving account changes. [MCP setup](ad-skill-jam/mcp/README.md) · [Approval workflow](ad-skill-jam/ads/ad-approval-gates/SKILL.md)
 
 ## Choose a setup
@@ -20,6 +20,16 @@
 | Use ad playbooks in your agent | [Install skills](#install-skills) with the Skills CLI or the platform-pack scripts. |
 | Read campaign inventory from your IDE | [Set up the local MCP](ad-skill-jam/mcp/README.md#install-in-an-ide) with a client install link or manual configuration. |
 | Install the MCP in a compatible desktop client | [Download the desktop bundle](https://github.com/VRIL-LABS/ad-skill-jam/releases/latest/download/ad-skill-jam.mcpb) or [build it locally](ad-skill-jam/mcp/README.md#install-a-desktop-bundle). |
+
+### What works without an ad account
+
+| What you can do | Access needed |
+| --- | --- |
+| Read skills, review a redacted export, or plan a campaign | Skill files and your own inputs |
+| Check local MCP readiness and look up platform setup | A running local MCP server |
+| Read campaign names, statuses, and types where available | An authorized advertising account and provider credentials |
+
+The MCP exposes campaign inventory and setup tools. For performance, targeting, or creative analysis, provide a redacted export to the relevant skill. [Coverage and verification](ad-skill-jam/mcp/README.md#tools-and-results)
 
 ### Install skills
 
@@ -37,6 +47,20 @@ npx skills add https://github.com/VRIL-LABS/ad-skill-jam/tree/main/ad-skill-jam 
 ```
 
 Run these commands in the project where you want the skills. For linked API ledgers, cross-skill references, and the local MCP, keep a checkout of the full repository and make it available to your agent. [Skills CLI](https://github.com/vercel-labs/skills)
+
+<details>
+
+<summary><strong>Use a pinned release with all skill references</strong></summary>
+
+From your destination project, clone the published release into a subdirectory. Use the skill directly from that checkout so its links to the API ledger, shared guardrails, and related skills resolve at the same revision.
+
+```sh
+git clone --depth 1 --branch v1.1.0 https://github.com/VRIL-LABS/ad-skill-jam.git ad-skill-jam-v1.1.0
+```
+
+Ask your agent to read `ad-skill-jam-v1.1.0/ad-skill-jam/google-ads/google-ads-search-terms/SKILL.md` and review a redacted search-terms export. Give the agent access to the whole checkout. To browse the same release with the Skills CLI, use `npx --yes --ignore-scripts skills@1.9.1 add https://github.com/VRIL-LABS/ad-skill-jam/tree/v1.1.0/ad-skill-jam --list`.
+
+</details>
 
 <details>
 
