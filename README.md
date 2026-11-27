@@ -139,7 +139,7 @@ Register `node` with the absolute path to `ad-skill-jam/mcp/gateway/stdio.ts` in
 
 Read the [contribution guide](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md). Agents should start with [AGENTS.md](AGENTS.md) for pack routing and checks.
 
-[Contributors](CONTRIBUTORS.md) · [Changelog](CHANGELOG.md) · [Accessibility](ACCESSIBILITY.md) · [Support](SUPPORT.md) · [Security policy](SECURITY.md)
+[Contributors](https://github.com/VRIL-LABS/ad-skill-jam/graphs/contributors) · [Changelog](CHANGELOG.md) · [Accessibility](ACCESSIBILITY.md) · [Support](SUPPORT.md) · [Security policy](SECURITY.md)
 
 <details>
 
