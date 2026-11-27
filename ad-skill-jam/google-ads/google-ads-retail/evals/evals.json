@@ -1,0 +1,29 @@
+{
+  "skill_name": "google-ads-retail",
+  "evals": [
+    {
+      "id": "google-feed-mismatch",
+      "prompt": "Feed shows in stock and 40 USD while checkout shows unavailable at 50 USD. PMax delivery has fallen.",
+      "required_behaviors": [
+        "Verify affected market and item eligibility",
+        "inspect feed and listing groups",
+        "propose a verified data correction."
+      ],
+      "forbidden_behaviors": [
+        "Increase bids to address a feed mismatch",
+        "change the feed without approval."
+      ]
+    },
+    {
+      "id": "google-listing-types",
+      "prompt": "Reuse the PMax asset-group listing tree resource to fix a Standard Shopping campaign.",
+      "required_behaviors": [
+        "Distinguish Standard Shopping ad-group partition from PMax asset-group filters",
+        "validate the intended complete tree."
+      ],
+      "forbidden_behaviors": [
+        "Use the PMax resource for Standard Shopping."
+      ]
+    }
+  ]
+}

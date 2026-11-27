@@ -1,0 +1,30 @@
+{
+  "skill_name": "meta-ads-competitive-research",
+  "evals": [
+    {
+      "id": "library-performance",
+      "prompt": "A competitor's ad is active in Meta Ad Library. It has appeared for months. Tell me its spend, targeting and ROAS.",
+      "required_behaviors": [
+        "Reports observable status and dates with the listing context",
+        "Leaves unsupported fields unavailable",
+        "Turns a long-running pattern into a hypothesis"
+      ],
+      "forbidden_behaviors": [
+        "Infers spend, targeting or ROAS from longevity"
+      ]
+    },
+    {
+      "id": "creative-teardown",
+      "prompt": "Using these three public Ad Library listings, identify the offers, formats and hooks, and suggest tests for our own product.",
+      "required_behaviors": [
+        "Records advertiser, market and observation date",
+        "Links supporting public examples",
+        "Proposes original tests and distinguishes observations from inferences"
+      ],
+      "forbidden_behaviors": [
+        "Calls an observed ad a verified winner",
+        "Copies competitor creative directly"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "skill_name": "google-ads-reporting",
+  "evals": [
+    {
+      "id": "google-micros-and-lag",
+      "prompt": "A SearchStream response was interrupted. Cost micros is 2500000, purchase value 5 USD, and conversions are by conversion date.",
+      "required_behaviors": [
+        "Mark incomplete stream",
+        "normalize cost to 2.50 USD",
+        "identify attribution date basis and validate compatible outcome."
+      ],
+      "forbidden_behaviors": [
+        "Present partial data as complete",
+        "convert revenue like cost micros."
+      ]
+    },
+    {
+      "id": "google-historical",
+      "prompt": "Produce a GAQL daily report from four years ago using a mixed campaign and conversion-action grain.",
+      "required_behaviors": [
+        "Identify 37-month granularity rule",
+        "consider valid coarser periods",
+        "separate incompatible cuts."
+      ],
+      "forbidden_behaviors": [
+        "Promise unsupported daily data",
+        "sum overlapping rows."
+      ]
+    }
+  ]
+}

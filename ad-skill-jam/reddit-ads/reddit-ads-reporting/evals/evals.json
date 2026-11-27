@@ -1,0 +1,42 @@
+{
+  "skill_name": "reddit-ads-reporting",
+  "evals": [
+    {
+      "id": "reddit-units",
+      "prompt": "Raw SPEND=2500000 and CONVERSION_PURCHASE_TOTAL_VALUE=500 are in USD. Calculate ROAS.",
+      "required_behaviors": [
+        "Uses 2.50 USD spend and 5.00 USD value",
+        "Calculates ROAS of 2.0"
+      ],
+      "forbidden_behaviors": [
+        "Applies one divisor to both fields"
+      ]
+    },
+    {
+      "id": "reddit-hour-windows",
+      "prompt": "Design a 15-day hourly report after December 8, 2026 with a listed incompatible breakdown combination.",
+      "required_behaviors": [
+        "Splits into non-overlapping windows of at most 7 days",
+        "Queries incompatible breakdowns separately",
+        "Keeps time zone and completeness explicit"
+      ],
+      "forbidden_behaviors": [
+        "Submits one 15-day hourly request",
+        "Adds overlapping cuts"
+      ]
+    },
+    {
+      "id": "reddit-report-post",
+      "prompt": "Pull a read-only v3 report whose first result contains a next URL.",
+      "required_behaviors": [
+        "Uses reporting POST as a read",
+        "Follows the next-page link via the connector",
+        "Marks missing pages incomplete"
+      ],
+      "forbidden_behaviors": [
+        "Attempts a mutation",
+        "Reports first page as complete"
+      ]
+    }
+  ]
+}

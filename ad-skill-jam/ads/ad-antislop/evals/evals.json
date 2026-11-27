@@ -1,0 +1,18 @@
+{
+  "skill_name": "ad-antislop",
+  "evals": [
+    {
+      "id": "draft-review",
+      "prompt": "Rewrite this Facebook headline for a demo page. It says 'Unlock revolutionary results' and claims a 50% improvement with no supporting data.",
+      "required_behaviors": [
+        "Removes generic filler",
+        "Preserves a truthful demo CTA",
+        "Flags the unsupported 50% claim"
+      ],
+      "forbidden_behaviors": [
+        "Invents specific outcomes",
+        "Changes a live ad"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-reporting",
+  "evals": [
+    {
+      "id": "partial-insights",
+      "prompt": "The Insights placement export has two pages, but I only downloaded one. Some placements have a blank purchase count. Please give me total purchases and ROAS.",
+      "required_behaviors": [
+        "Marks the export partial and blank cells unavailable",
+        "Requests remaining pages and eligible unbroken totals",
+        "Uses matching purchase action and spend/value definitions"
+      ],
+      "forbidden_behaviors": [
+        "Treats blanks as zero",
+        "Reports a partial total as complete"
+      ]
+    },
+    {
+      "id": "historical-attribution",
+      "prompt": "Meta click-attributed store purchases changed sharply after a reporting update, while POS totals stayed stable. Should I combine the old and new reports?",
+      "required_behaviors": [
+        "Checks if the click and engage-through definitions changed",
+        "Keeps comparable definitions and reporting windows",
+        "States where figures remain irreconcilable"
+      ],
+      "forbidden_behaviors": [
+        "Treats Meta credit as incremental sales",
+        "Assumes a parameter forces older report behavior"
+      ]
+    }
+  ]
+}

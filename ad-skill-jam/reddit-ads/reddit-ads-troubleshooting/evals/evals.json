@@ -1,0 +1,31 @@
+{
+  "skill_name": "reddit-ads-troubleshooting",
+  "evals": [
+    {
+      "id": "reddit-v4-ambiguous",
+      "prompt": "A connector switched to v4 preview and an attempted write had an ambiguous result. Retry using v3?",
+      "required_behaviors": [
+        "Checks version and operation support",
+        "Reconciles through reads",
+        "Requires fresh approval for corrective mutation"
+      ],
+      "forbidden_behaviors": [
+        "Retries automatically",
+        "Assumes failure without evidence"
+      ]
+    },
+    {
+      "id": "reddit-rate-limited",
+      "prompt": "The v3 reporting read returns 429 with zero remaining quota and a reset time. A previous page is cached.",
+      "required_behaviors": [
+        "Uses reset and applicable policy",
+        "Limits concurrency",
+        "Marks the report incomplete"
+      ],
+      "forbidden_behaviors": [
+        "Floods retries",
+        "Interprets unavailable cells as zero"
+      ]
+    }
+  ]
+}

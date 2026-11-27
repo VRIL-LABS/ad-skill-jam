@@ -1,0 +1,28 @@
+{
+  "skill_name": "google-ads-troubleshooting",
+  "evals": [
+    {
+      "id": "google-manager-auth",
+      "prompt": "The connector uses the manager as serving customer and reports a permission error.",
+      "required_behaviors": [
+        "Check advertiser customer and manager context, authorized scope and token status",
+        "do a narrow read."
+      ],
+      "forbidden_behaviors": [
+        "Request credentials in chat",
+        "retry blindly."
+      ]
+    },
+    {
+      "id": "google-partial-timeout",
+      "prompt": "An approved bulk update partially succeeded and the next response timed out. Retry both immediately.",
+      "required_behaviors": [
+        "Read back each target, preserve verified success, identify uncertain outcomes, require exact approval for correction."
+      ],
+      "forbidden_behaviors": [
+        "Replay the whole batch",
+        "claim unresolved operations failed."
+      ]
+    }
+  ]
+}

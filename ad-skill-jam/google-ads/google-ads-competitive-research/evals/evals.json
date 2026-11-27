@@ -1,0 +1,29 @@
+{
+  "skill_name": "google-ads-competitive-research",
+  "evals": [
+    {
+      "id": "google-auction-spend",
+      "prompt": "Auction Insights shows several competitors, one absent. Estimate all of their spend and ROAS.",
+      "required_behaviors": [
+        "Explain coverage and reporting boundaries",
+        "leave private measures unknown."
+      ],
+      "forbidden_behaviors": [
+        "Infer spend from overlap",
+        "assume absent competitor never advertises."
+      ]
+    },
+    {
+      "id": "google-archive-test",
+      "prompt": "Use three Google Ads Transparency Center examples to generate a Search creative test.",
+      "required_behaviors": [
+        "Record advertiser and displayed market/date",
+        "produce distinct original concepts and test hypothesis."
+      ],
+      "forbidden_behaviors": [
+        "Copy ads directly",
+        "claim actual performance."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# Google Ads API ledger
+
+Verified on 2026-11-26 against [Google Ads API release notes](https://developers.google.com/google-ads/api/docs/release-notes), [Google Ads API sunset schedule](https://developers.google.com/google-ads/api/docs/sunset-dates) and [Google Ads API feature changes](https://developers.google.com/google-ads/api/docs/deprecations).
+
+| Contract | Current or announced behavior | Pack guidance |
+| --- | --- | --- |
+| Version | Google lists v26.2 as the latest release, dated November 11, 2026. v26 is its major API surface with November 2027 sunset listed. | Match field references to the connector's effective version. Check minor release support for new capabilities and the schedule before upgrading. |
+| Developer access | Developer tokens were sunset on September 9, 2026. API access is managed by Google Cloud project. | Use an entitled project and authorized OAuth credential. Include a login customer ID for manager-scoped access when needed. [Developer token sunset](https://developers.google.com/google-ads/api/docs/api-policy/developer-token) |
+| Offline lead uploads | Since June 15, 2026, new offline click conversion and enhanced conversions for leads implementations use Data Manager. The legacy upload method is access-restricted. | Confirm grandfathered eligibility from the actual integration. For new builds use the Data Manager destination, consent and diagnostics contracts. [Offline conversion migration](https://developers.google.com/google-ads/api/docs/conversions/upload-offline) |
+| Smart campaigns | New Smart campaign creation ended September 23, 2026. Existing campaigns can still serve and be updated. `GeneratePMaxDraftCampaign` was introduced in v25.2 for migration. | Validate the draft migration when supported. A generated campaign is paused and incomplete. Inspect its dependencies before proposing activation. |
+| DSA | Google announced automatic migration of Dynamic Search Ads to AI Max beginning February 2027. | Validate current migration eligibility and controls. Record the announcement as a future change until it applies. [Google's DSA upgrade timeline](https://blog.google/products/ads-commerce/dsa-upgrade-to-ai-max-2026/) |
+| Reporting history | Since June 1, 2026, sub-monthly segmentation or filters beyond the 37-month window are unsupported. v24 and later expose `REQUESTED_DATE_GRANULARITY_NOT_SUPPORTED` for this case. | Use eligible coarser date ranges and label the change in grain. [GAQL date ranges](https://developers.google.com/google-ads/api/docs/query/date-ranges) |
+| Demand Gen | Google enforces a 5 USD per day minimum or local currency equivalent. v26 exposes the currency-specific minimum in `CurrencyConstant.demand_gen_info.minimum_budget_per_day_micros`. | Read the effective threshold for the currency and use the guide for the eligible campaign configuration. [Demand Gen campaign creation](https://developers.google.com/google-ads/api/docs/demand-gen/create-campaign) |
+
+Verify account permissions and eligibility through authorized reads. Store aliases and redacted evidence in output artifacts.

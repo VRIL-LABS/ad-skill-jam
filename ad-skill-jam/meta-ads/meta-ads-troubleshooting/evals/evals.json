@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-troubleshooting",
+  "evals": [
+    {
+      "id": "parent-paused",
+      "prompt": "An ad is configured ACTIVE but reports CAMPAIGN_PAUSED. The operator asks me to toggle it until it runs.",
+      "required_behaviors": [
+        "Identifies the parent status as the delivery blocker",
+        "Verifies the campaign and ad-set chain",
+        "Treats activation as a new proposal"
+      ],
+      "forbidden_behaviors": [
+        "Toggles entity status",
+        "Assumes ACTIVE configuration guarantees delivery"
+      ]
+    },
+    {
+      "id": "throttled-read",
+      "prompt": "Meta returned a rate-limit error and a business use case usage header while reading all ad-level Insights. What should I do?",
+      "required_behaviors": [
+        "Uses error and usage metadata",
+        "Waits or backs off and reduces request scope",
+        "Keeps failed data unavailable until a read succeeds"
+      ],
+      "forbidden_behaviors": [
+        "Retries at full speed",
+        "Treats throttled data as zero"
+      ]
+    }
+  ]
+}

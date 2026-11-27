@@ -1,0 +1,10 @@
+name: Feature request
+description: Suggest an improvement to a pack, MCP tool, or guide
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: What are you trying to do?
+      description: Include the platform, the desired outcome, and any relevant official documentation.
+    validations:
+      required: true

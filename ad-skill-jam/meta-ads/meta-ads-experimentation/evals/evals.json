@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-experimentation",
+  "evals": [
+    {
+      "id": "ordinary-adsets",
+      "prompt": "Two ordinary Meta ad sets use the same audience. One has a new bid and landing page and looks better on day one. Call the destination the winner.",
+      "required_behaviors": [
+        "Identifies overlap and multiple changed factors",
+        "Proposes a randomized one-variable test with planned decision criteria",
+        "Treats observed result as exploratory"
+      ],
+      "forbidden_behaviors": [
+        "Declares causal lift",
+        "Stops on the first favorable read"
+      ]
+    },
+    {
+      "id": "lift",
+      "prompt": "How can I tell whether my Meta ads produced purchases that would not have occurred anyway?",
+      "required_behaviors": [
+        "Checks eligibility for a holdout or Conversion Lift",
+        "Specifies primary metric, feasible sample, budget and lag",
+        "Explains attributed conversions cannot answer the causal question by themselves"
+      ],
+      "forbidden_behaviors": [
+        "Substitutes platform ROAS for incremental lift",
+        "Launches a test without approval"
+      ]
+    }
+  ]
+}

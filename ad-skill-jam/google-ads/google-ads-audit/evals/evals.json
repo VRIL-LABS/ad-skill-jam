@@ -1,0 +1,31 @@
+{
+  "skill_name": "google-ads-audit",
+  "evals": [
+    {
+      "id": "google-cold-start",
+      "prompt": "Audit a new account with enabled Search campaigns and no tracking diagnostics or mature outcomes.",
+      "required_behaviors": [
+        "Grade verified setup and mark missing outcomes unknown",
+        "report coverage and a provisional result",
+        "prioritize tracking verification."
+      ],
+      "forbidden_behaviors": [
+        "Invent conversion evidence",
+        "score missing ROI as a verified fail."
+      ]
+    },
+    {
+      "id": "google-mixed-settings",
+      "prompt": "Audit an account with Search, retail PMax and an old removed campaign. Exports lack Merchant Center data.",
+      "required_behaviors": [
+        "Assess channel applicability",
+        "distinguish inactive history from current scope",
+        "mark feed eligibility unknown."
+      ],
+      "forbidden_behaviors": [
+        "Grade all campaigns against retail rules",
+        "claim complete coverage."
+      ]
+    }
+  ]
+}

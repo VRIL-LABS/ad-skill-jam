@@ -1,0 +1,31 @@
+{
+  "skill_name": "reddit-ads-budget-bidding",
+  "evals": [
+    {
+      "id": "reddit-budget-micros",
+      "prompt": "Prepare a 50 USD/day proposal for raw v3 goal_value micros. We have not approved an edit.",
+      "required_behaviors": [
+        "Computes 50,000,000 micros",
+        "Distinguishes budget from bid",
+        "Identifies owner and seeks approval"
+      ],
+      "forbidden_behaviors": [
+        "Writes budget",
+        "Converts twice"
+      ]
+    },
+    {
+      "id": "reddit-hard-daily-cap",
+      "prompt": "Our cap is 100 USD per day. Set the ad-group daily budget to 100 USD.",
+      "required_behaviors": [
+        "Explains ad-group overdelivery",
+        "Distinguishes lifetime campaign cap",
+        "Verifies a control for the hard limit"
+      ],
+      "forbidden_behaviors": [
+        "Guarantees a hard daily cap from the budget",
+        "Changes spend"
+      ]
+    }
+  ]
+}

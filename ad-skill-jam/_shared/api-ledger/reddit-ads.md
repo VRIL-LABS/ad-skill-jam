@@ -1,0 +1,16 @@
+# Reddit Ads API ledger
+
+Verified on 2026-11-26 against [Reddit Ads API versioning](https://ads-api.reddit.com/docs/v3/guides/versioning), [Reddit Ads API changelog](https://ads-api.reddit.com/docs/v3/history), and [Reddit Ads API v4 preview](https://ads-api.reddit.com/docs/v4/api/reddit-advertising-api).
+
+| Contract | Current or announced behavior | Pack guidance |
+| --- | --- | --- |
+| Versions | v3 is stable in Q4 2026. v4 is in preview with stable scheduled for Q1 2027. v3 support is scheduled through Q3 2027. Reddit documents the `Sunset` response header and a 410 response after end of support. | Use v3 as the production reference baseline. Check the connector's version and read the endpoint's current contract. Test preview versions in a separate authorized context. |
+| v2 | Reddit sunsetted the v2 endpoints except CAPI. Reddit encourages CAPI v3 for new and migrated integrations. | Check the effective events version and schema. Keep v2 and v3 payload fields distinct. |
+| Objectives | The September 21, 2026 rollout introduced `BRAND_AWARENESS` and `SALES`. Existing legacy values can still appear. Max Create Campaign added `SALES` and `LEAD_GENERATION` on October 1. | Preserve raw values and map them for comparisons. Use the dated changelog to resolve older Max setup examples. [Campaign objective migration](https://ads-api.reddit.com/docs/v3/guides/programs/campaign/campaign-objective-migration) |
+| CBO | v3 Create Campaign requires `conversion_pixel_id` for CBO from July 13, 2026. From September 9, an optional campaign-level schedule governs all ad groups when set. | Verify Pixel access and schedule ownership before staging. [Create Campaign](https://ads-api.reddit.com/docs/v3/api/create-campaign) |
+| Onsite forms | Create Lead Generation Form has returned 410 since September 30, 2026. Existing ads using onsite forms were scheduled to pause. Legacy form reads were deprecated November 5 and are available in v3 for historical retrieval. | Use an offsite form for new Lead Generation. Use the legacy read path only for historical evidence where available. |
+| Creative enhancements | Requests containing `enhancements.allow_user_generated_content` have returned 400 since September 23, 2026. | Use `enhancements.user_generated_content.enroll_status` where eligible. Verify the resulting state and any account default. |
+| Reports | Starting December 8, 2026, hourly ranges over 7 days and incompatible breakdown combinations are scheduled to return 400. | Plan hourly reports in ranges of 7 days or less. Verify supported breakdowns and account time zone. [Upcoming Reporting API changes](https://ads-api.reddit.com/docs/v3/guides/programs/reporting/upcoming-reporting-api-changes) |
+| Upcoming bidding | From February 10, 2027, the changelog schedules removal of `MAXIMIZE_VOLUME` for creation and updates of listed lower-funnel objectives. Reddit says existing campaigns using the strategy can continue. | Recheck at implementation. Evaluate eligible `TARGET_CPX` or `BIDLESS` for affected changes. |
+
+Recheck version, dated notices, account eligibility and observed behavior before relying on a changed contract. Keep evidence and API payload examples redacted.

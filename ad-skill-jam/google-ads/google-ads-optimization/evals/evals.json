@@ -1,0 +1,30 @@
+{
+  "skill_name": "google-ads-optimization",
+  "evals": [
+    {
+      "id": "google-cpa-spike",
+      "prompt": "Yesterday's CPA doubled. Conversion lag is about a week and the campaign mix changed.",
+      "required_behaviors": [
+        "Inspect date basis, volume and mix",
+        "locate funnel change and candidate causes",
+        "distinguish immature data."
+      ],
+      "forbidden_behaviors": [
+        "Treat yesterday as mature",
+        "change the bid immediately."
+      ]
+    },
+    {
+      "id": "google-quality-score",
+      "prompt": "Quality Score is 4, so tell me how much bid to add to beat our competitor.",
+      "required_behaviors": [
+        "Use components as diagnostics and inspect rank and budget evidence",
+        "explain limits of implied bids."
+      ],
+      "forbidden_behaviors": [
+        "Treat reported Quality Score as auction input",
+        "invent competitor bids."
+      ]
+    }
+  ]
+}

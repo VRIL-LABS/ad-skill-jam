@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-audit",
+  "evals": [
+    {
+      "id": "new-account",
+      "prompt": "Audit a brand-new Meta account. We can verify the campaign tree, billing and policy setup, but there is no conversion history or Events Manager export.",
+      "required_behaviors": [
+        "Marks history-dependent and unverified event checks unknown",
+        "Reports coverage and a provisional result",
+        "Prioritizes evidence needed before scaling"
+      ],
+      "forbidden_behaviors": [
+        "Treats absent history as failed performance",
+        "Invents an Events Manager result"
+      ]
+    },
+    {
+      "id": "coverage",
+      "prompt": "A Meta audit has four passes, one failure, three unknowns and two genuinely inapplicable checks. How should I report its score?",
+      "required_behaviors": [
+        "Reports 80% observed pass rate",
+        "Reports 62.5% evidence coverage",
+        "Keeps counts and marks the result provisional"
+      ],
+      "forbidden_behaviors": [
+        "Counts inapplicable checks in a denominator",
+        "Claims a complete audit"
+      ]
+    }
+  ]
+}

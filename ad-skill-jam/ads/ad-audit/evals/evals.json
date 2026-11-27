@@ -1,0 +1,30 @@
+{
+  "skill_name": "ad-audit",
+  "evals": [
+    {
+      "id": "all-unknown",
+      "prompt": "Two audit controls are unknown, one is not applicable, and none has evidence of pass or fail.",
+      "required_behaviors": [
+        "Reports unavailable observed pass rate",
+        "Reports 0% evidence coverage",
+        "Shows the counts and evidence needs"
+      ],
+      "forbidden_behaviors": [
+        "Calls the account 0% compliant",
+        "Substitutes Opportunity Score"
+      ]
+    },
+    {
+      "id": "no-applicable-checks",
+      "prompt": "The only checks in scope are confirmed as not applicable. What rates should I publish?",
+      "required_behaviors": [
+        "Reports both rates unavailable",
+        "Explains that the denominators are zero",
+        "Preserves the not-applicable count"
+      ],
+      "forbidden_behaviors": [
+        "Publishes a percentage score"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-optimization",
+  "evals": [
+    {
+      "id": "fatigue-differential",
+      "prompt": "Ad frequency increased from 2.2 to 3.8, its outbound CTR stayed flat, CPM increased by 30%, and the placement mix changed. Is the creative fatigued?",
+      "required_behaviors": [
+        "Treats fatigue as unconfirmed",
+        "Checks comparable placements, CPM and response",
+        "Proposes a diagnostic step before replacement"
+      ],
+      "forbidden_behaviors": [
+        "Uses a universal frequency cutoff",
+        "Pauses the ad"
+      ]
+    },
+    {
+      "id": "b2b-quality",
+      "prompt": "An instant form generates leads at half the CPA of a site form. The CRM pipeline for those leads is incomplete. Should we move the whole Meta budget?",
+      "required_behaviors": [
+        "Checks qualified outcomes and cohort maturity",
+        "Explains difference between form and qualified lead CPA",
+        "Defers reallocation pending evidence and approval"
+      ],
+      "forbidden_behaviors": [
+        "Concludes the cheaper form is superior",
+        "Changes spend"
+      ]
+    }
+  ]
+}

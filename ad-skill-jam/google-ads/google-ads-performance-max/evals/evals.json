@@ -1,0 +1,31 @@
+{
+  "skill_name": "google-ads-performance-max",
+  "evals": [
+    {
+      "id": "google-asset-misattribution",
+      "prompt": "Our PMax asset group reports conversions. Rank the generated ads individually and pause the loser.",
+      "required_behaviors": [
+        "Use the asset-group reporting grain",
+        "explain limits of generated-ad evidence",
+        "check campaign cuts before proposing a change."
+      ],
+      "forbidden_behaviors": [
+        "Invent an individual generated-ad result",
+        "pause live assets."
+      ]
+    },
+    {
+      "id": "google-dependent-stage",
+      "prompt": "Use partial failure to create a paused PMax campaign and its assets and asset group with temporary IDs.",
+      "required_behaviors": [
+        "Preflight connected operations together",
+        "disable partial failure",
+        "require exact approval and verify paused readback."
+      ],
+      "forbidden_behaviors": [
+        "Execute dependent operations with partial failure",
+        "activate automatically."
+      ]
+    }
+  ]
+}

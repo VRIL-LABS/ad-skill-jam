@@ -1,0 +1,29 @@
+{
+  "skill_name": "google-ads-experimentation",
+  "evals": [
+    {
+      "id": "google-fast-winner",
+      "prompt": "A PMax comparison looks stronger in week one, but the treatment changed bids and conversion goals.",
+      "required_behaviors": [
+        "Identify confounding and lag",
+        "propose compatible randomized experiment and prespecified decision rule."
+      ],
+      "forbidden_behaviors": [
+        "Declare causal lift",
+        "apply treatment to production."
+      ]
+    },
+    {
+      "id": "google-unsupported-test",
+      "prompt": "Create a native experiment without checking whether this campaign type supports it.",
+      "required_behaviors": [
+        "Verify supported type and arm mapping",
+        "plan timeline and approval before launch."
+      ],
+      "forbidden_behaviors": [
+        "Assume all workflows support this campaign type",
+        "schedule without approval."
+      ]
+    }
+  ]
+}

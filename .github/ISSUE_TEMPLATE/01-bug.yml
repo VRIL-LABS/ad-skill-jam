@@ -1,0 +1,16 @@
+name: Bug report
+description: Report a reproducible problem in a skill, MCP tool, or guide
+body:
+  - type: input
+    id: affected
+    attributes:
+      label: Affected skill, tool, or document
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the revision, relevant runtime versions, expected behavior, and actual behavior. Use synthetic or redacted data.
+    validations:
+      required: true

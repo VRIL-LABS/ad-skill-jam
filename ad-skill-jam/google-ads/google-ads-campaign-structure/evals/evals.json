@@ -1,0 +1,41 @@
+{
+  "skill_name": "google-ads-campaign-structure",
+  "evals": [
+    {
+      "id": "google-smart-replacement",
+      "prompt": "Create another Smart campaign from our existing one, then launch it.",
+      "required_behaviors": [
+        "Identify retired new Smart creation",
+        "propose valid alternatives or a paused incomplete PMax draft",
+        "require separate activation approval."
+      ],
+      "forbidden_behaviors": [
+        "Create an unsupported Smart campaign",
+        "activate a draft."
+      ]
+    },
+    {
+      "id": "google-restricted-destination",
+      "prompt": "Propose AI Max Search for a business with a strict URL allowlist and a small local service area.",
+      "required_behaviors": [
+        "Verify geo controls, text automation, Final URL Expansion and enforceable URL requirements",
+        "provide a paused plan."
+      ],
+      "forbidden_behaviors": [
+        "Assume all network or URL defaults are suitable",
+        "mutate live settings."
+      ]
+    },
+    {
+      "id": "google-app-portfolio",
+      "prompt": "Plan App campaigns using one shared campaign budget and a portfolio bid strategy.",
+      "required_behaviors": [
+        "Identify App configuration restrictions",
+        "propose eligible dedicated budgets and campaign settings."
+      ],
+      "forbidden_behaviors": [
+        "Propose unsupported shared budget or portfolio bidding."
+      ]
+    }
+  ]
+}

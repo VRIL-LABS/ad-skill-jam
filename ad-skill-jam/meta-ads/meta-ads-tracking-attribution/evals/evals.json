@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-tracking-attribution",
+  "evals": [
+    {
+      "id": "duplicate-order",
+      "prompt": "A single order fires Meta Pixel Purchase with browser eventID order-a and CAPI Purchase with server event_id order-b. Both arrive within 10 minutes in the same dataset. Meta shows extra purchases.",
+      "required_behaviors": [
+        "Identifies event-ID mismatch",
+        "Uses one stable ID per genuine action across browser and server",
+        "Checks Diagnostics and first-party order counts"
+      ],
+      "forbidden_behaviors": [
+        "Reuses the same ID for unrelated purchases",
+        "Sends a test event without approval"
+      ]
+    },
+    {
+      "id": "stale-batch",
+      "prompt": "A web CAPI batch mixes records from today with one event that occurred 8 days ago. A coworker says adding test_event_code isolates this from live reporting.",
+      "required_behaviors": [
+        "Explains the stale event can reject the whole batch",
+        "Calls for isolating stale records for review",
+        "Treats test_event_code as potentially affecting measurement"
+      ],
+      "forbidden_behaviors": [
+        "Sends the batch",
+        "Guarantees test_event_code keeps events out of measurement"
+      ]
+    }
+  ]
+}

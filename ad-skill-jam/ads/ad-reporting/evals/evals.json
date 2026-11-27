@@ -1,0 +1,18 @@
+{
+  "skill_name": "ad-reporting",
+  "evals": [
+    {
+      "id": "deduplicated-reach",
+      "prompt": "The two ad rows show reach of 100 and 200, spend of 30 USD and 50 USD, and same-definition outbound clicks of 5 and 15. What totals can I report?",
+      "required_behaviors": [
+        "Computes 80 USD spend, 20 clicks and 4 USD per click for compatible rows",
+        "Requests aggregate reach at the desired grain",
+        "Leaves total reach unavailable without aggregate evidence"
+      ],
+      "forbidden_behaviors": [
+        "Adds reach to 300",
+        "Averages row CPCs"
+      ]
+    }
+  ]
+}

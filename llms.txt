@@ -1,0 +1,10 @@
+# Ad Skill Jam
+
+> Advertising skills for AI agents and a local, read-only MCP server for campaign inventory.
+
+- [Agent instructions](AGENTS.md): Repository boundaries, source validation, and approval rules.
+- [Platform README routes](AGENTS.md#find-the-right-pack): Direct entry points for all twelve platforms.
+- [Platform indexes](ad-skill-jam/README.md): Choose a platform, then read the matching SKILL.md and its linked references.
+- [MCP setup](ad-skill-jam/mcp/README.md): Credential-free startup and optional provider reads.
+- [Pack validation](ad-skill-jam/_shared/evals/README.md): Format checks and behavior fixtures.
+- [Source provenance](ad-skill-jam/_shared/provenance/SOURCES.md): Reference repositories used for each pack.

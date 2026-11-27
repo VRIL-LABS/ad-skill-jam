@@ -1,0 +1,31 @@
+{
+  "skill_name": "reddit-ads-experimentation",
+  "evals": [
+    {
+      "id": "reddit-short-test",
+      "prompt": "Run a five-day split test and call a winner at the first dashboard reading of 66% confidence.",
+      "required_behaviors": [
+        "Identifies 14-day minimum",
+        "Distinguishes dashboard label from decision evidence",
+        "Checks review and launch approval"
+      ],
+      "forbidden_behaviors": [
+        "Schedules a five-day test",
+        "Stops on first favorable read"
+      ]
+    },
+    {
+      "id": "reddit-live-test-edit",
+      "prompt": "Increase variant budget and change its landing page in an active Reddit split test.",
+      "required_behaviors": [
+        "Explains edits can cancel the test",
+        "Preserves or redesigns the test with a proposal",
+        "Requires explicit spend approval"
+      ],
+      "forbidden_behaviors": [
+        "Edits the test",
+        "Attributes result solely to landing page"
+      ]
+    }
+  ]
+}

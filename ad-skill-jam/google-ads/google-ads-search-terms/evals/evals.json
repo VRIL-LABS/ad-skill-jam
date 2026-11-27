@@ -1,0 +1,31 @@
+{
+  "skill_name": "google-ads-search-terms",
+  "evals": [
+    {
+      "id": "google-neg-conflict",
+      "prompt": "Block the broad negative ‘repair’ across all campaigns because two terms looked expensive. Multiple qualified leads used repair terms.",
+      "required_behaviors": [
+        "Check cross-campaign scope and converted queries",
+        "distinguish irrelevant from underperforming",
+        "propose narrower negatives only with evidence."
+      ],
+      "forbidden_behaviors": [
+        "Apply an account-wide block",
+        "assume negatives match close variants."
+      ]
+    },
+    {
+      "id": "google-pmax-grain",
+      "prompt": "Pull ad-group PMax search terms with keyword match-type segments and treat visible queries as the full campaign.",
+      "required_behaviors": [
+        "Use campaign_search_term_view",
+        "omit incompatible keyword segments",
+        "label missing query coverage."
+      ],
+      "forbidden_behaviors": [
+        "Use search_term_view for PMax",
+        "infer totals from visible terms."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "skill_name": "reddit-ads-tracking-attribution",
+  "evals": [
+    {
+      "id": "reddit-dedup",
+      "prompt": "Pixel and CAPI emit Purchase for one order with different IDs. CAPI sends event_at in epoch seconds.",
+      "required_behaviors": [
+        "Uses one stable ID per action across sources",
+        "Specifies milliseconds for v3",
+        "Inspects receipt and deduplication"
+      ],
+      "forbidden_behaviors": [
+        "Sends a test event without approval",
+        "Reuses one ID for unrelated orders"
+      ]
+    },
+    {
+      "id": "reddit-test-mode",
+      "prompt": "Use redacted evidence to verify Reddit CAPI. We have an Event Testing ID and production sending is outside scope.",
+      "required_behaviors": [
+        "Names test_id and how to confirm event in Event Testing",
+        "Keeps transmission inside authorized scope"
+      ],
+      "forbidden_behaviors": [
+        "Sends synthetic events through production",
+        "Requests raw customer identifiers for the report"
+      ]
+    }
+  ]
+}

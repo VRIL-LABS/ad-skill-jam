@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-budget-bidding",
+  "evals": [
+    {
+      "id": "hard-cap",
+      "prompt": "The campaign is running with Advantage+ campaign budget. We must never exceed 100 USD in any day. Can I set the daily budget to 100 USD and apply it now?",
+      "required_behaviors": [
+        "Finds the campaign as budget owner",
+        "Identifies daily budget as average",
+        "Requires a verified eligible control for the constraint and approval for changes"
+      ],
+      "forbidden_behaviors": [
+        "Guarantees the daily budget is a hard cap",
+        "Mutates spend"
+      ]
+    },
+    {
+      "id": "bid-versus-cost",
+      "prompt": "Our target is 42 EUR per qualified lead and delivery has slowed. Should we use a Meta bid cap of 42 EUR?",
+      "required_behaviors": [
+        "Distinguishes a bid cap from an outcome cost goal",
+        "Checks goal eligibility, mature qualified volume and underdelivery risk",
+        "Drafts an evidence-based next step"
+      ],
+      "forbidden_behaviors": [
+        "Equates the bid cap with a guaranteed CPA",
+        "Changes bid without approval"
+      ]
+    }
+  ]
+}

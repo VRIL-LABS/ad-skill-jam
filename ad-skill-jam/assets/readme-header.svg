@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="350" viewBox="0 0 1120 350" role="img" aria-labelledby="title desc">
+  <title id="title">Ad Skill Jam, by VRIL LABS</title>
+  <desc id="desc">An embossed wordmark on an ivory control panel with a lavender chart and softly lit status indicators.</desc>
+  <defs>
+    <linearGradient id="chassis" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#fffaf2"/>
+      <stop offset="1" stop-color="#e6deef"/>
+    </linearGradient>
+    <linearGradient id="screen" x2="0" y2="1">
+      <stop stop-color="#e1d6ee"/>
+      <stop offset="1" stop-color="#f5effa"/>
+    </linearGradient>
+    <linearGradient id="plot" x2="0" y2="1">
+      <stop stop-color="#8e61e1" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#8e61e1" stop-opacity=".03"/>
+    </linearGradient>
+    <radialGradient id="knob" cx=".34" cy=".28" r=".72">
+      <stop stop-color="#fff"/>
+      <stop offset=".67" stop-color="#ede4f3"/>
+      <stop offset="1" stop-color="#c8b9d7"/>
+    </radialGradient>
+    <filter id="raised" x="-.15" y="-.25" width="1.35" height="1.6">
+      <feDropShadow dx="0" dy="-2" stdDeviation="2" flood-color="#fff" flood-opacity=".9"/>
+      <feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#655174" flood-opacity=".22"/>
+    </filter>
+    <pattern id="grid" width="32" height="24" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V24" fill="none" stroke="#85679f" stroke-opacity=".18"/>
+    </pattern>
+    <clipPath id="screen-clip"><rect x="721" y="90" width="322" height="144" rx="17"/></clipPath>
+  </defs>
+  <style>
+    .trace { animation: trace-in 2s cubic-bezier(.22,.75,.35,1) both; }
+    .plot { animation: plot-in 1.8s .4s ease-out both; }
+    .indicator { animation: indicator-in 1.5s .3s ease-out both; }
+    @keyframes trace-in { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+    @keyframes plot-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes indicator-in { 0% { opacity: .32; } 61% { opacity: 1; } 100% { opacity: .8; } }
+    @media (prefers-reduced-motion: reduce) { .trace, .plot, .indicator { animation: none; } }
+  </style>
+
+  <rect x="12" y="12" width="1096" height="326" rx="34" fill="#e9dfed"/>
+  <rect x="12" y="8" width="1096" height="326" rx="34" fill="url(#chassis)" stroke="#c8b9d0"/>
+  <rect x="22" y="18" width="1076" height="306" rx="26" fill="none" stroke="#fff" stroke-opacity=".8"/>
+
+  <g fill="#d0c0d8" stroke="#fdf8ff">
+    <circle cx="43" cy="41" r="6"/><circle cx="1077" cy="41" r="6"/>
+    <circle cx="43" cy="302" r="6"/><circle cx="1077" cy="302" r="6"/>
+  </g>
+  <path d="M40 41h6m1028 0h6M40 302h6m1028 0h6" stroke="#9a86a7" stroke-linecap="round"/>
+
+  <g transform="translate(77 72)">
+    <rect width="76" height="76" rx="21" fill="#eee6f5" stroke="#fffcff" filter="url(#raised)"/>
+    <path d="M20 38h8l6-15 8 31 6-16h8" fill="none" stroke="#7242ad" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="76" y="218" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="82" font-weight="720" letter-spacing="-4.4" fill="#fff" transform="translate(0 2)">Ad Skill Jam</text>
+  <text x="76" y="218" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="82" font-weight="720" letter-spacing="-4.4" fill="#29213a">Ad Skill Jam</text>
+  <path d="M79 257h29" stroke="#9966ce" stroke-width="2" stroke-linecap="round"/>
+  <text x="120" y="262" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="15" font-weight="650" letter-spacing="3" fill="#5d4a6e">by VRIL LABS</text>
+
+  <g>
+    <rect x="697" y="59" width="368" height="231" rx="27" fill="#ece4f2" stroke="#fffbff" filter="url(#raised)"/>
+    <rect x="720" y="89" width="324" height="146" rx="18" fill="url(#screen)" stroke="#a892bd"/>
+    <g clip-path="url(#screen-clip)">
+      <rect x="721" y="90" width="322" height="144" fill="url(#grid)"/>
+      <path class="plot" d="M721 198C747 197 760 174 780 177S807 204 829 186 866 140 884 154 916 176 940 148 978 127 996 133 1020 118 1043 108V234H721Z" fill="url(#plot)"/>
+      <path class="trace" d="M721 198C747 197 760 174 780 177S807 204 829 186 866 140 884 154 916 176 940 148 978 127 996 133 1020 118 1043 108" pathLength="1" fill="none" stroke="#6f43b7" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(735 260)">
+      <circle r="7" fill="#d8c8e7" stroke="#fbf6ff"/>
+      <circle class="indicator" r="3.5" fill="#7240b2" opacity=".8"/>
+      <path d="M30 0h8m6 0h8m6 0h8m6 0h8m6 0h8m6 0h8" stroke="#a896b6" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <circle cx="1018" cy="260" r="18" fill="url(#knob)" stroke="#fff" filter="url(#raised)"/>
+    <path d="M1018 248v6" stroke="#8c70a8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

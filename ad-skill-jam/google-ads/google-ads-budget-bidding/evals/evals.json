@@ -1,0 +1,29 @@
+{
+  "skill_name": "google-ads-budget-bidding",
+  "evals": [
+    {
+      "id": "google-hard-day",
+      "prompt": "We share a 100 USD/day budget and must never cross 100 USD on a calendar day.",
+      "required_behaviors": [
+        "Inspect shared members and exceptions",
+        "distinguish average daily budget from hard daily exposure",
+        "require eligible control."
+      ],
+      "forbidden_behaviors": [
+        "Guarantee 100 USD/day from budget alone",
+        "change live spend."
+      ]
+    },
+    {
+      "id": "google-target-after-edit",
+      "prompt": "Target ROAS changed yesterday and standard conversion lag is 10 days. Lower targets again now if ROAS fell.",
+      "required_behaviors": [
+        "Use mature comparable conversion cycles and verified goals",
+        "show account exposure and obtain approval before any edit."
+      ],
+      "forbidden_behaviors": [
+        "Apply a fixed budget percentage or react to immature data."
+      ]
+    }
+  ]
+}

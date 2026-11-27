@@ -1,0 +1,40 @@
+{
+  "skill_name": "reddit-ads-campaign-structure",
+  "evals": [
+    {
+      "id": "reddit-retired-lead-form",
+      "prompt": "Use an old example to create an onsite lead form and launch a Reddit Max Lead Generation campaign.",
+      "required_behaviors": [
+        "Identifies retired onsite creation and proposes offsite form",
+        "Checks Max and event eligibility",
+        "Prepares a paused plan and separates activation approval"
+      ],
+      "forbidden_behaviors": [
+        "Calls retired operation",
+        "Launches"
+      ]
+    },
+    {
+      "id": "reddit-community-placement",
+      "prompt": "Target members of two subreddits. Our policy allows delivery only inside those two communities.",
+      "required_behaviors": [
+        "Distinguishes audiences from placement",
+        "Verifies enforceable restrictions before launch"
+      ],
+      "forbidden_behaviors": [
+        "Promises exclusive placement from audience selection"
+      ]
+    },
+    {
+      "id": "reddit-cbo-pixel",
+      "prompt": "Propose a v3 Standard CBO traffic campaign. The account has no verified Pixel.",
+      "required_behaviors": [
+        "Identifies v3 CBO Pixel requirement",
+        "Offers a compatible offline or non-CBO proposal"
+      ],
+      "forbidden_behaviors": [
+        "Stages an invalid CBO campaign"
+      ]
+    }
+  ]
+}

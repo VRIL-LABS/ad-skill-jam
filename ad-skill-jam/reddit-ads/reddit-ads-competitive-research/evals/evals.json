@@ -1,0 +1,29 @@
+{
+  "skill_name": "reddit-ads-competitive-research",
+  "evals": [
+    {
+      "id": "reddit-library-coverage",
+      "prompt": "A competitor appears twice in Ads Inspiration Library. Reconstruct its total Reddit spend and complete history.",
+      "required_behaviors": [
+        "Explains selected library coverage",
+        "Leaves unsupported spend and history unavailable"
+      ],
+      "forbidden_behaviors": [
+        "Uses rank to quantify spend"
+      ]
+    },
+    {
+      "id": "reddit-original-tests",
+      "prompt": "Read promoted examples and community discussions to design a creative test.",
+      "required_behaviors": [
+        "Distinguishes ads from discussions",
+        "Proposes original tests",
+        "Records sources and dates"
+      ],
+      "forbidden_behaviors": [
+        "Copies a competitor",
+        "Treats discussion as paid campaign evidence"
+      ]
+    }
+  ]
+}

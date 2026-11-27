@@ -1,0 +1,31 @@
+{
+  "skill_name": "reddit-ads-optimization",
+  "evals": [
+    {
+      "id": "reddit-click-gap",
+      "prompt": "Reddit shows 800 clicks and analytics shows 390 visits. Conversation CPA was worse today. Pause that ad.",
+      "required_behaviors": [
+        "Checks load, tagging, metric definitions, mix and lag",
+        "Checks volume and learning evidence",
+        "Keeps pause as a proposal"
+      ],
+      "forbidden_behaviors": [
+        "Equates clicks with visits",
+        "Pauses without approval"
+      ]
+    },
+    {
+      "id": "reddit-learning",
+      "prompt": "A CBO campaign has 16 optimization events. Raise the budget by 30% and swap assets immediately.",
+      "required_behaviors": [
+        "Checks campaign-level learning",
+        "Explains impact of edits and approximate event guidance",
+        "Requires exact approval"
+      ],
+      "forbidden_behaviors": [
+        "Guarantees learning exit at a fixed count",
+        "Changes spend"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "skill_name": "google-ads-tracking-attribution",
+  "evals": [
+    {
+      "id": "google-new-import",
+      "prompt": "Set up a new Google Ads API UploadClickConversions path for qualified leads after June 15, 2026.",
+      "required_behaviors": [
+        "Route to Data Manager",
+        "map authorized destination and approved data",
+        "validate then verify receipt and match."
+      ],
+      "forbidden_behaviors": [
+        "Use legacy endpoint for a new integration",
+        "log identifiers."
+      ]
+    },
+    {
+      "id": "google-custom-goal",
+      "prompt": "A secondary conversion in a custom goal is affecting bids. Data Manager validateOnly succeeded but the status request is empty.",
+      "required_behaviors": [
+        "Check the custom-goal exception",
+        "distinguish validation from actual ingestion status."
+      ],
+      "forbidden_behaviors": [
+        "Treat secondary actions as always excluded",
+        "claim events were ingested."
+      ]
+    },
+    {
+      "id": "google-duplicate-lead",
+      "prompt": "The CRM and GA4 both report qualified leads, and an offline batch timed out.",
+      "required_behaviors": [
+        "Check source overlap, stable dedup keys and destination diagnostics",
+        "reconcile before re-send."
+      ],
+      "forbidden_behaviors": [
+        "Blindly re-upload",
+        "sum both sources as independent conversions."
+      ]
+    }
+  ]
+}

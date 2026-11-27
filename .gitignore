@@ -1,0 +1,12 @@
+# Local reference checkouts and editor state
+/ref/
+/.idea/
+/.agents/skills/*.lnk
+
+# Generated dependencies and local credentials
+node_modules/
+__pycache__/
+.env
+.env.*
+!.env.example
+accounts.local.json

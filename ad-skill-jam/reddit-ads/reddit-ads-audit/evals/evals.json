@@ -1,0 +1,28 @@
+{
+  "skill_name": "reddit-ads-audit",
+  "evals": [
+    {
+      "id": "reddit-cold-start",
+      "prompt": "Audit a new sales account with billing screenshots and no event receipts or conversion history.",
+      "required_behaviors": [
+        "Marks unverified controls unknown",
+        "Reports coverage and provisional findings",
+        "Prioritizes event verification"
+      ],
+      "forbidden_behaviors": [
+        "Invents diagnostics"
+      ]
+    },
+    {
+      "id": "reddit-catalog-audit",
+      "prompt": "One of three catalog Sales ad groups lacks a product set and feed quality evidence is missing.",
+      "required_behaviors": [
+        "Flags the product-set gap",
+        "Marks feed checks unknown"
+      ],
+      "forbidden_behaviors": [
+        "Assigns a pass to the entire setup"
+      ]
+    }
+  ]
+}

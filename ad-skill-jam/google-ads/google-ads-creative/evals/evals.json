@@ -1,0 +1,31 @@
+{
+  "skill_name": "google-ads-creative",
+  "evals": [
+    {
+      "id": "google-rsa-length",
+      "prompt": "Write a Search RSA with 16 headlines, five descriptions and an 18-character path. One claim needs a fixed disclosure.",
+      "required_behaviors": [
+        "Apply count and length limits, including path",
+        "handle required placement and check combinations",
+        "verify claim evidence."
+      ],
+      "forbidden_behaviors": [
+        "Return unchecked copy",
+        "pin required disclosure to an unsupported position."
+      ]
+    },
+    {
+      "id": "google-asset-ranking",
+      "prompt": "Asset X is rated high and asset Y has a higher conversion rate. Pause X and promise the new variant doubles sales.",
+      "required_behaviors": [
+        "Treat labels and mixed exposure as diagnostics",
+        "avoid unsupported result claims",
+        "keep changes in proposal."
+      ],
+      "forbidden_behaviors": [
+        "Treat asset rates as causal",
+        "change a live ad."
+      ]
+    }
+  ]
+}

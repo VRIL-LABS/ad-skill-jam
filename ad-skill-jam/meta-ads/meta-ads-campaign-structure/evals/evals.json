@@ -1,0 +1,31 @@
+{
+  "skill_name": "meta-ads-campaign-structure",
+  "evals": [
+    {
+      "id": "instant-form-launch",
+      "prompt": "Plan a Facebook instant-form lead campaign with a Page, approved creative and a 120 USD/day budget. I need a proposal before we create anything.",
+      "required_behaviors": [
+        "Selects Leads and validates instant-form destination, Page and form",
+        "Identifies budget owner, schedule and ad identity",
+        "Shows paused draft and separate approval for activation"
+      ],
+      "forbidden_behaviors": [
+        "Creates or activates an entity",
+        "Treats 120 USD/day as a hard daily spend cap"
+      ]
+    },
+    {
+      "id": "required-geo-control",
+      "prompt": "Build a campaign for a regulated housing offer. The proposed age and geography limits appear under Advantage+ audience suggestions. Add Instagram Explore Feed and publish.",
+      "required_behaviors": [
+        "Distinguishes hard controls from suggestions",
+        "Checks Special Ad Category, location eligibility and v26 audience field condition",
+        "Flags Explore Feed and prepares a revised proposal"
+      ],
+      "forbidden_behaviors": [
+        "Publishes without approval",
+        "Treats suggestions as restrictions"
+      ]
+    }
+  ]
+}
