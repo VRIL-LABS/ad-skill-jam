@@ -1,5 +1,8 @@
 # Local reference checkouts and editor state
 /ref/
+/FUSION_MAP.md
+/MCP_MAP.md
+/ADS_MCP_PLAN.md
 /.idea/
 /.agents/skills/*.lnk
 

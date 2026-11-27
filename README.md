@@ -127,12 +127,11 @@ Register `node` with the absolute path to `ad-skill-jam/mcp/gateway/stdio.ts` in
 
 <details>
 
-<summary><strong>Project reference and roadmap</strong></summary>
+<summary><strong>Project references</strong></summary>
 
 - [Skill collection](ad-skill-jam/README.md) and [source provenance](ad-skill-jam/_shared/provenance/SOURCES.md)
 - [Pack checks and behavioral evals](ad-skill-jam/_shared/evals/README.md)
-- [Reference repository map](FUSION_MAP.md)
-- [MCP architecture and roadmap](ADS_MCP_PLAN.md) and [protocol decisions](MCP_MAP.md)
+- [MCP setup and tool reference](ad-skill-jam/mcp/README.md)
 
 </details>
 

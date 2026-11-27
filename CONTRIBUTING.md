@@ -1,6 +1,6 @@
 # Contributing
 
-Use [AGENTS.md](AGENTS.md) for the repository workflow and [the pack index](ad-skill-jam/README.md) to find the affected skill. Treat [reference checkouts](FUSION_MAP.md) as read-only. Put product changes in `ad-skill-jam/` and repository guides at the root.
+Use [AGENTS.md](AGENTS.md) for the repository workflow and [the pack index](ad-skill-jam/README.md) to find the affected skill. Treat any local reference checkouts in `ref/` as read-only. Put product changes in `ad-skill-jam/` and repository guides at the root.
 
 ## Make a change
 

@@ -1,6 +1,6 @@
 # AGENTS.md — ads-skills-subcollection
 
-**Doc set:** [`AGENTS.md`](AGENTS.md) (rules and workflow, this file) · [`FUSION_MAP.md`](FUSION_MAP.md) (catalog of every repo in `ref/`) · [`MCP_MAP.md`](MCP_MAP.md) (MCP protocol source map) · [`ADS_MCP_PLAN.md`](ADS_MCP_PLAN.md) (dev plan for the ad MCP) · [`PROMPT.md`](PROMPT.md) (ready-to-paste task prompt)
+**Repository guides:** [AGENTS.md](AGENTS.md) and [PROMPT.md](PROMPT.md). The source catalog and MCP planning notes are local development files when available.
 
 Start with the [repository README](README.md) to choose a platform or run the local MCP. Use the [contribution guide](CONTRIBUTING.md) for the checks to run before submitting a change.
 
@@ -56,13 +56,13 @@ npm test
 - [Platform coverage and where to mine](#platform-coverage-and-where-to-mine)
 - [Conventions for fused skills](#conventions-for-fused-skills)
 - [Out of scope](#out-of-scope)
-- Related: [FUSION_MAP → Top 3 repos](FUSION_MAP.md#top-3-highest-quality-repos) · [FUSION_MAP → AI-indicator scan](FUSION_MAP.md#ai-indicator-scan-hyperfuse-codebases-step-0) · [FUSION_MAP → callouts](FUSION_MAP.md#cross-cutting-callouts-for-developers) · [MCP_MAP → plan](MCP_MAP.md#10-phased-development-plan) · [MCP_MAP → security](MCP_MAP.md#7-security-plan) · [ADS_MCP_PLAN → roadmap](ADS_MCP_PLAN.md#12-roadmap) · [ADS_MCP_PLAN → write path](ADS_MCP_PLAN.md#6-write-path-the-safety-core) · [PROMPT.md](PROMPT.md)
+- Related: [PROMPT.md](PROMPT.md)
 
 ## Mission
 
 Mine the reference codebases in `ref/`, extract the **crème de la crème** (best instructions, decision rules, thresholds, workflows, API knowledge, guardrails), and **hyperfuse** it into one new, research-validated ad-platform skillset.
 
-- **Input (read-only):** `ref/` contains the reference repositories, grouped by platform. See the [source catalog](FUSION_MAP.md).
+- **Input (read-only):** `ref/` contains the reference repositories, grouped by platform. Use the local source catalog when available, or consult the [source provenance](ad-skill-jam/_shared/provenance/SOURCES.md).
 - **Output (write here):** `ad-skill-jam/` is where the **final codebase is built**. Layout and naming: [Final codebase](#final-codebase-ad-skill-jam).
 
 ## Final codebase: `ad-skill-jam/`
@@ -112,7 +112,7 @@ Conventions for this tree:
 - **Platform folders are flat.** Each skill is its own folder named `<platform>-<task>` (for example `meta-ads/meta-ads-audit/`), per the [fused skill conventions](#conventions-for-fused-skills).
 - **Cross-platform logic goes in `ads/`**, not duplicated per platform. Platform skills route to `ads/` skills where they overlap.
 - **Platform coverage:** all twelve platform packs have shipped skills. Check `FUSION_MAP.md` and the provenance manifest for platform-specific and cross-platform sources.
-- **`mcp/` is built per [`MCP_MAP.md`](MCP_MAP.md) and [`ADS_MCP_PLAN.md`](ADS_MCP_PLAN.md)** (product definition, architecture, write path, platform plans, milestones M0 to M8): phases P0 to P7, security controls S1 to S16, and the decisions D1 to D15 there are binding for anything under `ad-skill-jam/mcp/`. Read the [source inventory](MCP_MAP.md#3-source-inventory) before writing MCP code.
+- **MCP work:** Start with the [MCP setup guide](ad-skill-jam/mcp/README.md), [tool registry](ad-skill-jam/mcp/gateway/server.ts), and [security policy](SECURITY.md). When available, consult the local protocol and development plans for architecture, source inventory, and write-path rules.
 - **Add folders as needed** and update this tree. If the folders are committed to git, add a `.gitkeep`, since git ignores empty directories.
 
 ## Hard rules
@@ -128,7 +128,7 @@ Conventions for this tree:
 
 ## Project skills that govern this work
 
-Project skill sources live in `.gemini/antigravity/skills/`. Load them before a mining or fusion task. Local reference checkouts live under the gitignored `ref/` directory. Use [FUSION_MAP.md](FUSION_MAP.md) to find the upstream repositories.
+Project skill sources live in `.gemini/antigravity/skills/`. Load them before a mining or fusion task. Local reference checkouts live under the gitignored `ref/` directory. Use `FUSION_MAP.md` to find the upstream repositories.
 
 | Skill | Role in this project |
 |---|---|
@@ -140,7 +140,7 @@ Project skill sources live in `.gemini/antigravity/skills/`. Load them before a 
 
 Licenses are **not a decision point** in this pipeline. Agents must:
 
-- **Never ask the user** a licensing question and **never pause** a task to deliberate one. The per-repo license notes in [`FUSION_MAP.md`](FUSION_MAP.md#cross-cutting-callouts-for-developers) are informational, not gates. Any repo in `ref/` may be mined, combined, and fused.
+- **Never ask the user** a licensing question and **never pause** a task to deliberate one. The per-repo license notes in `FUSION_MAP.md` are informational, not gates. Any repo in `ref/` may be mined, combined, and fused.
 - **Never write long licensing analysis.** One sentence at most, using the templates in the three skills above.
 - **Not add LICENSE files, SPDX headers, or copyright banners** to anything under `ad-skill-jam/` unless the user explicitly asks.
 - **Not spend effort adding or removing notices** on anything. Extract-and-rewrite (rule 3) means almost nothing is carried over as-is, so there is nothing to relabel.
@@ -154,8 +154,8 @@ Run `hyperfuse-codebases` as the outer loop. The mining steps below are the inne
 
 | Step | Hyperfuse action | Mining action |
 |---|---|---|
-| 0. Scan | Run the AI-indicator scan once per repo (git trailers, agent config files, source artifacts). The current results are in [`FUSION_MAP.md` → AI-indicator scan](FUSION_MAP.md#ai-indicator-scan-hyperfuse-codebases-step-0). Re-run after `git fetch --unshallow` if you want history coverage. | Pick sources for the target platform from `FUSION_MAP.md`. |
-| 1. Level | Set the confidence level from the ladder and record **one line** per repo in `SOURCES.md` (`repo — level — indicators`). That line is the whole deliberation. | Prioritize repos with strong validation signals (see [Top 3](FUSION_MAP.md#top-3-highest-quality-repos)). |
+| 0. Scan | Run the AI-indicator scan once per repo (git trailers, agent config files, source artifacts). The current results are in `FUSION_MAP.md`. Re-run after `git fetch --unshallow` if you want history coverage. | Pick sources for the target platform from `FUSION_MAP.md`. |
+| 1. Level | Set the confidence level from the ladder and record **one line** per repo in `SOURCES.md` (`repo — level — indicators`). That line is the whole deliberation. | Prioritize repos with strong validation signals. |
 | 2. Extract | Take what you need from every repo at once, in any combination. Do not rank sources by license. | Extract thresholds, checklists, workflows, gotchas, guardrails, eval cases. |
 | 3. Fuse | Merge overlapping repos into **one** best version per task. Contradictions are resolved by validation, not by which repo "owns" the idea. | Cluster by task, then write one skill per task per platform. |
 | 4. Validate | The one real risk is contamination and bad facts, not licenses. | Check every threshold, limit, API version against official docs (rule 4). |
@@ -167,7 +167,7 @@ Run `hyperfuse-codebases` as the outer loop. The mining steps below are the inne
 
 ## Mining workflow
 
-1. **Inventory** — read [`FUSION_MAP.md`](FUSION_MAP.md) for the target platform (sections: [Meta](FUSION_MAP.md#meta-ads--refmeta-ads), [Reddit](FUSION_MAP.md#reddit-ads--refreddit-ads), [X](FUSION_MAP.md#x-twitter-ads--refx-ads), [TikTok](FUSION_MAP.md#tiktok-ads--reftiktok-ads), [LinkedIn](FUSION_MAP.md#linkedin-ads--reflinkedin-ads), [Google](FUSION_MAP.md#google-ads--refgoogle-ads), [Apple](FUSION_MAP.md#apple-ads--refapple-ads), [cross-platform](FUSION_MAP.md#cross-platform--refmulti-platform), [general marketing](FUSION_MAP.md#general-marketing--refmarketing-general)); list the repos and the files worth reading (skills, references, agents, evals, API notes).
+1. **Inventory** — Use the local source catalog when available, or start with the [source provenance](ad-skill-jam/_shared/provenance/SOURCES.md). List the repos for the platform and the files worth reading (skills, references, agents, evals, API notes).
 2. **Extract** — per repo, pull: decision rules with numeric thresholds, audit checklists, workflow ordering, failure modes, API field/limit gotchas, guardrail patterns, eval cases. Skim READMEs for marketing; mine `SKILL.md`, `references/`, `docs/`, `src/` (MCP tool schemas reveal real API surface), and `tests/`/`evals/` (reveal expected behavior).
 3. **Cluster** — group extracted items by task (audit, structure, creative, bidding/budget, tracking, reporting, troubleshooting). Note overlaps and contradictions.
 4. **Validate** — check each retained item against official docs and, where possible, a live read-only API call or sandbox. Drop or flag what fails. Prefer primary sources over blog-derived claims.
