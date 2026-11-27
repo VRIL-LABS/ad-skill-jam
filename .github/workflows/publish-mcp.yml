@@ -1,0 +1,39 @@
+name: Publish to the MCP Registry
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  publish:
+    if: github.repository == 'VRIL-LABS/ad-skill-jam' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Download and verify MCP Publisher
+        run: |
+          archive="$RUNNER_TEMP/mcp-publisher.tar.gz"
+          curl --fail --silent --show-error --location --retry 3 \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.8.18/mcp-publisher_linux_amd64.tar.gz \
+            --output "$archive"
+          echo "9497333e58d49117db1dd4241a564760821308c73cca17a2f3ca26008df6f42b  $archive" | sha256sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP" mcp-publisher
+      - name: Verify the registry metadata and release bundle
+        run: |
+          "$RUNNER_TEMP/mcp-publisher" validate server.json
+          bundle="$RUNNER_TEMP/ad-skill-jam.mcpb"
+          url=$(jq -er '.packages[0].identifier' server.json)
+          digest=$(jq -er '.packages[0].fileSha256' server.json)
+          curl --fail --silent --show-error --location --retry 3 "$url" --output "$bundle"
+          echo "$digest  $bundle" | sha256sum --check
+      - name: Publish with GitHub OIDC
+        run: |
+          "$RUNNER_TEMP/mcp-publisher" login github-oidc
+          "$RUNNER_TEMP/mcp-publisher" publish server.json
