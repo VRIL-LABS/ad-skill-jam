@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { cpSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Client } from '@modelcontextprotocol/client';
@@ -44,8 +44,12 @@ try {
   const manifest = JSON.parse(readFileSync(join(mcp, 'packaging', 'manifest.json'), 'utf8'));
   manifest.version = JSON.parse(readFileSync(join(mcp, 'package.json'), 'utf8')).version;
   writeFileSync(join(stage, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-  for (const entry of ['README.md', '_shared', 'ads', 'assets', 'marketing', 'scripts', ...platforms.map(platform => platform + '-ads')]) {
+  for (const entry of ['README.md', '_shared', 'ads', 'assets', 'scripts', ...platforms.map(platform => platform + '-ads')]) {
     copyTree(join(pack, entry), join(stagedPack, entry), ['.md', '.json', '.svg', '.py', '.sh', '.ps1']);
+  }
+  const marketing = join(pack, 'marketing');
+  if (existsSync(marketing)) {
+    copyTree(marketing, join(stagedPack, 'marketing'), ['.md', '.json', '.py', '.sh', '.ps1']);
   }
   for (const entry of ['package.json', 'package-lock.json', 'README.md', 'accounts.example.json', 'gateway', 'servers', 'shared', 'skills-bridge']) {
     copyTree(join(mcp, entry), join(stagedMcp, entry), ['.json', '.md', '.ts']);
