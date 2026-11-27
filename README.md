@@ -13,7 +13,15 @@
 - **See how a workflow should behave.** Eval cases spell out what the agent should do when evidence is missing or someone asks it to spend without approval. [Eval guide](ad-skill-jam/_shared/evals/README.md)
 - **Start with an export.** Use a redacted report or connect the local MCP for read-only campaign inventory. The playbooks put you in charge of approving account changes. [MCP setup](ad-skill-jam/mcp/README.md) · [Approval workflow](ad-skill-jam/ads/ad-approval-gates/SKILL.md)
 
-## Install skills
+## Choose a setup
+
+| What you want | Setup |
+| --- | --- |
+| Use ad playbooks in your agent | [Install skills](#install-skills) with the Skills CLI or the platform-pack scripts. |
+| Read campaign inventory from your IDE | [Set up the local MCP](ad-skill-jam/mcp/README.md#install-in-an-ide) with a client install link or manual configuration. |
+| Install the MCP in a compatible desktop client | [Download the desktop bundle](https://github.com/VRIL-LABS/ad-skill-jam/releases/latest/download/ad-skill-jam.mcpb) or [build it locally](ad-skill-jam/mcp/README.md#install-a-desktop-bundle). |
+
+### Install skills
 
 Browse the collection before installing, or pick the skills you need.
 
@@ -29,6 +37,28 @@ npx skills add https://github.com/VRIL-LABS/ad-skill-jam/tree/main/ad-skill-jam 
 ```
 
 Run these commands in the project where you want the skills. For linked API ledgers, cross-skill references, and the local MCP, keep a checkout of the full repository and make it available to your agent. [Skills CLI](https://github.com/vercel-labs/skills)
+
+<details>
+
+<summary><strong>Install one or more platform packs</strong></summary>
+
+The scripts fetch your chosen packs from GitHub and copy the skills into the current project. Run them from your destination project. Use the script from your Ad Skill Jam checkout or download [the Bash script](ad-skill-jam/scripts/install-packs.sh) or [the PowerShell script](ad-skill-jam/scripts/install-packs.ps1). Node.js 24+, npm, and Git must be on your path.
+
+**Linux and macOS**
+
+```sh
+bash /path/to/ad-skill-jam/ad-skill-jam/scripts/install-packs.sh --agent codex google meta shared
+```
+
+**Windows**
+
+```powershell
+& 'C:/path/to/ad-skill-jam/ad-skill-jam/scripts/install-packs.ps1' -Packs google,meta,shared -Agent codex
+```
+
+Select `amazon`, `apple`, `google`, `linkedin`, `meta`, `microsoft`, `pinterest`, `reddit`, `snapchat`, `tiktok`, `x`, or `youtube`. Use `shared` for cross-platform skills or `all` by itself for the full collection. Omit the agent option to let the Skills CLI choose or prompt. Use `--list` or `-List` to preview a selection.
+
+</details>
 
 ## Pick a platform
 
@@ -90,6 +120,8 @@ npm test
 ```
 
 Register `node` with the absolute path to `ad-skill-jam/mcp/gateway/stdio.ts` in your MCP client. Call `adjam_health_check` to confirm the server is ready. The [MCP guide](ad-skill-jam/mcp/README.md) has Codex and JSON configuration examples, account setup, and error codes.
+
+[![Add Ad Skill Jam MCP to VS Code](https://img.shields.io/badge/VS_Code-Add_MCP-2564ad?style=flat)](https://vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522ad-skill-jam%2522%252C%2522type%2522%253A%2522stdio%2522%252C%2522command%2522%253A%2522node%2522%252C%2522args%2522%253A%255B%2522%2524%257BworkspaceFolder%257D%252Fad-skill-jam%252Fmcp%252Fgateway%252Fstdio.ts%2522%255D%257D) · [Install links by IDE](ad-skill-jam/mcp/README.md#install-in-an-ide) · [Desktop bundle](ad-skill-jam/mcp/README.md#install-a-desktop-bundle)
 
 </details>
 

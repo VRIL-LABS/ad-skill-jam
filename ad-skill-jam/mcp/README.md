@@ -4,6 +4,8 @@ Try the local MCP server before connecting an ad account. Look up provider setup
 
 ## Start without an account
 
+### Prepare the local server
+
 1. Install Node.js 24 or later. Open a terminal in `ad-skill-jam/mcp`.
 2. Install the pinned dependencies and run the checks.
 
@@ -37,6 +39,65 @@ Try the local MCP server before connecting an ad account. Look up provider setup
 4. Restart or reload the MCP client. Call `adjam_health_check` with `{}`. A fresh server reports `ready` and `unconfigured`. `adjam_list_accounts` returns an empty configuration list. Call `adjam_get_platform_setup` with `{"platform":"apple"}` or another platform from the table. A campaign tool returns `ACCOUNT_NOT_CONFIGURED` for an alias that has no matching configuration.
 
 The client launches the server over stdio. Running `npm start` alone waits for protocol input. Browse [the skill indexes](../README.md) directly if your client does not expose the skills extension.
+
+## Install in an IDE
+
+Use Node.js 24 or later and run `npm ci --ignore-scripts` in `ad-skill-jam/mcp` first. Each install configures the same local stdio server with tools for all twelve advertising platforms. Approve the server in your client, call `adjam_health_check`, then check for the platform’s `<platform>_get_campaigns` tool. Credentials are optional at startup.
+
+### Install buttons
+
+Open the **repository root** in VS Code. Use the Add MCP button in any platform README and install at **workspace** scope. Its payload runs the checkout’s stdio entrypoint with `node` from your path. [VS Code install-link documentation](https://code.visualstudio.com/api/extension-guides/ai/mcp#shareable-web-badges-and-redirect-wrapper)
+
+For **Cursor, Kiro, and TRAE**, run this from `ad-skill-jam/mcp` and open the generated `dist/install-mcp.html` in your browser:
+
+```sh
+npm run ide-links
+```
+
+Keep the generated page local. It embeds the absolute paths to your Node executable and checkout and also offers a VS Code button using those paths.
+
+#### Cursor
+
+Choose **Add to Cursor** on the generated page. Confirm the imported server in Cursor’s MCP settings. [Cursor install links](https://cursor.com/docs/mcp/install-links)
+
+#### Kiro
+
+Choose **Add to Kiro** on the generated page and review the command before confirming. The Kiro HTTPS launch page receives the local paths in the link when clicked. [Kiro install links](https://kiro.dev/docs/mcp/share/)
+
+#### TRAE
+
+Choose **Add to TRAE**, or **Add to TRAE China** for that edition, and review the stdio command before importing. [TRAE install links](https://docs.trae.ai/ide/mcp-server-install-links) · [TRAE China](https://docs.trae.cn/ide_mcp-server-install-links)
+
+Microsoft’s Playwright MCP uses editor-specific links for VS Code, Cursor, and Kiro. Lark’s MCP publishes a TRAE import link. Ad Skill Jam builds on those patterns with paths from the local checkout. [Playwright MCP](https://github.com/microsoft/playwright-mcp#standard-config) · [Lark MCP](https://github.com/larksuite/lark-openapi-mcp)
+
+### Other clients
+
+Use a local **STDIO** server configuration with the absolute paths to Node and `gateway/stdio.ts` from the [local setup](#prepare-the-local-server). Configure the actual client you use, including extensions hosted inside VS Code. Keep workspace scope if you only want these tools in this project. Use user scope if you want them across projects and have an absolute path to the checkout.
+
+| Client | Setup route |
+| --- | --- |
+| Codex or Claude Code | Register the local command with the client’s `mcp add` CLI. [Codex example](#prepare-the-local-server) · [Claude Code MCP](https://code.claude.com/docs/en/mcp) |
+| Augment Code, Cline, Roo Code | Use the client’s own MCP configuration and add a local command. [Augment](https://docs.augmentcode.com/setup-augment/mcp) · [Cline](https://docs.cline.bot/mcp/configuring-mcp-servers) · [Roo Code](https://roocodeinc.github.io/Roo-Code/features/mcp/using-mcp-in-roo/) |
+| Devin Cloud or Devin Local | Use the product’s custom MCP setup. The checkout and runtime must be available where the command runs. [Devin](https://docs.devin.ai/work-with-devin/mcp) · [Devin Local / Windsurf](https://docs.windsurf.com/windsurf/cascade/mcp) |
+| Zed, Antigravity, JetBrains AI Assistant | Choose the local command or STDIO option in MCP settings. [Zed](https://zed.dev/docs/ai/mcp) · [Antigravity](https://antigravity.google/docs/mcp/) · [JetBrains](https://www.jetbrains.com/help/ai-assistant/mcp.html) |
+| Amazon Q, Tabnine, Continue, OpenCode | Use each client’s documented local command format or registration CLI. [Amazon Q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/mcp-ide.html) · [Tabnine](https://docs.tabnine.com/main/getting-started/tabnine-agent/mcp-intro-and-setup/mcp-server-config) · [Continue](https://docs.continue.dev/customize/deep-dives/mcp) · [OpenCode](https://opencode.ai/docs/mcp-servers/) |
+| Replit | Its install link needs a remote HTTPS endpoint. Ad Skill Jam ships a local stdio server. [Replit](https://docs.replit.com/features/mcp/overview) |
+| Aider | Follow the MCP documentation for your frontend if it provides an MCP client. [Upstream Aider request](https://github.com/Aider-AI/aider/issues/3314) |
+
+## Install a desktop bundle
+
+An MCPB-compatible desktop client can install the server and its dependencies from a single file. Its Node runtime must meet the bundle’s Node.js 24+ requirement. [Download the latest desktop bundle](https://github.com/VRIL-LABS/ad-skill-jam/releases/latest/download/ad-skill-jam.mcpb), or build it from `ad-skill-jam/mcp` in a source checkout:
+
+```sh
+npm ci --ignore-scripts
+npm run bundle
+```
+
+Open the downloaded bundle or the local `dist/ad-skill-jam.mcpb` in your client, review the install prompt, and call `adjam_health_check`.
+
+The build installs pinned runtime dependencies in a staging directory, starts the staged server, and checks the manifest with the pinned MCPB CLI before packing. The bundle includes the skill catalog and no account credentials. [MCPB specification and tooling](https://github.com/modelcontextprotocol/mcpb)
+
+Leave **Local account settings** blank to start without an account. For campaign reads, set it to your local account settings file and supply the credential variables to the desktop process using its supported environment or secret store. Use read-scoped accounts where available, review the registered tools, and restrict access to the files and provider network endpoints you need. See [account configuration](#connect-an-existing-account).
 
 ## Connect an existing account
 

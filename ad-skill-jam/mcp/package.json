@@ -1,12 +1,14 @@
 {
   "name": "ad-skill-jam-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Local read-only advertising MCP and skill catalog",
   "private": true,
   "scripts": {
     "start": "node gateway/stdio.ts",
     "check": "tsc --noEmit",
-    "test": "node --test tests/*.test.ts"
+    "test": "node --test tests/*.test.ts",
+    "bundle": "node packaging/build-bundle.mjs",
+    "ide-links": "node packaging/ide-links.mjs"
   },
   "engines": {
     "node": ">=24"

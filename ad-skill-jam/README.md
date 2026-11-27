@@ -29,6 +29,10 @@ Choose a platform, then open the skill for your task. Give your agent the `SKILL
   </tr>
 </table>
 
+## Install skills
+
+From the project where you want the skills, run the [Bash installer](scripts/install-packs.sh) on Linux or macOS, or the [PowerShell installer](scripts/install-packs.ps1) on Windows. Use Node.js 24+, npm, and Git. Specify pack names such as `google` and `meta`, add `shared` for cross-platform skills, or choose `all` by itself. Each platform README also has a direct Skills CLI command.
+
 <details>
 
 <summary><strong>Shared advertising skills</strong></summary>
@@ -43,6 +47,8 @@ Choose a platform, then open the skill for your task. Give your agent the `SKILL
 </details>
 
 ## Run the MCP
+
+[![Add Ad Skill Jam MCP to VS Code](https://img.shields.io/badge/VS_Code-Add_MCP-2564ad?style=flat)](https://vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522ad-skill-jam%2522%252C%2522type%2522%253A%2522stdio%2522%252C%2522command%2522%253A%2522node%2522%252C%2522args%2522%253A%255B%2522%2524%257BworkspaceFolder%257D%252Fad-skill-jam%252Fmcp%252Fgateway%252Fstdio.ts%2522%255D%257D) · [Install links by IDE](mcp/README.md#install-in-an-ide) · [Desktop bundle](mcp/README.md#install-a-desktop-bundle)
 
 The local server supports health checks, account setup, and skill browsing without credentials. With a configured account, use it to fetch read-only campaign inventory. Clients with Skills over MCP can look up a skill by its frontmatter `name` and open its supporting files from the catalog. [MCP setup and troubleshooting](mcp/README.md)
 

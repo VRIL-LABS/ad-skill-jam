@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0] - 2026-11-27
+
+### Added
+
+- Bash and PowerShell scripts for installing selected platform packs with the Skills CLI.
+- VS Code install buttons in every platform pack and local install links for Cursor, Kiro, and TRAE.
+- A desktop MCP bundle containing the server, runtime dependencies, and skill catalog.
+
 ## [1.0.0] - 2026-11-27
 
 ### Added

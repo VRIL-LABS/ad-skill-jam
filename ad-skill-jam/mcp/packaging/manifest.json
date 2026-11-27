@@ -1,0 +1,37 @@
+{
+  "manifest_version": "0.3",
+  "name": "ad-skill-jam",
+  "display_name": "Ad Skill Jam",
+  "version": "1.1.0",
+  "description": "Read-only campaign inventory and advertising skills for twelve platforms.",
+  "author": {
+    "name": "VRIL LABS",
+    "url": "https://github.com/VRIL-LABS"
+  },
+  "homepage": "https://github.com/VRIL-LABS/ad-skill-jam",
+  "server": {
+    "type": "node",
+    "entry_point": "ad-skill-jam/mcp/gateway/stdio.ts",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/ad-skill-jam/mcp/gateway/stdio.ts"],
+      "env": {
+        "ADJAM_ACCOUNTS_FILE": "${user_config.accounts_file}"
+      }
+    }
+  },
+  "compatibility": {
+    "runtimes": {
+      "node": ">=24.0.0"
+    }
+  },
+  "user_config": {
+    "accounts_file": {
+      "type": "file",
+      "title": "Local account settings",
+      "description": "Optional absolute path to the local account configuration JSON. Credentials must be supplied to the desktop process separately.",
+      "default": "",
+      "required": false
+    }
+  }
+}
