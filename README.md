@@ -7,7 +7,7 @@
 [![183 eval cases](https://img.shields.io/badge/eval_cases-183-66439c?style=flat)](ad-skill-jam/_shared/evals/README.md)
 [![Read-only MCP](https://img.shields.io/badge/MCP-read--only-4f536f?style=flat)](ad-skill-jam/mcp/README.md)
 
-**Give your AI agent a paid media playbook you can verify.** Audit an account, plan a campaign, or trace a drop in conversions back to the evidence with skills tailored to each ad platform.
+**Give your AI agent a paid media playbook for 12 ad platforms.** Ad Skill Jam includes skills for Google Ads, Meta Ads, YouTube Ads, LinkedIn Ads, Reddit Ads, TikTok Ads, X Ads, Snapchat Ads, Pinterest Ads, Microsoft Advertising, Apple Ads, and Amazon Ads. Use them to audit accounts, plan campaigns, and trace drops in conversions back to the evidence.
 
 - **See where the guidance comes from.** We combined workflows from ad tools and playbooks, checked platform claims against official docs, and dated the source notes. [Source provenance](ad-skill-jam/_shared/provenance/SOURCES.md)
 - **See how a workflow should behave.** Eval cases spell out what the agent should do when evidence is missing or someone asks it to spend without approval. [Eval guide](ad-skill-jam/_shared/evals/README.md)
@@ -149,6 +149,16 @@ Read the [contribution guide](CONTRIBUTING.md) and [code of conduct](CODE_OF_CON
 Provider icons come from the [Social Media Icons & Logos Figma Community file](https://www.figma.com/design/G3UOnXFeTkpUjHZIKcffiy/Social-Media-Icons---Logos--Community-?node-id=0-1), [SVG Logos for Microsoft](https://github.com/gilbarbara/logos/blob/main/logos/microsoft-icon.svg), and [Wikimedia Commons for Amazon](https://commons.wikimedia.org/wiki/File:Amazon_logo.svg). The marks identify the corresponding providers.
 
 </details>
+
+## Fund Ad Skill Jam
+
+Help keep the playbooks and platform references up to date.
+
+[![GitHub Sponsors](ad-skill-jam/assets/donate/github-sponsors-small.svg)](https://github.com/sponsors/VRIL-LABS)
+[![Open Collective](ad-skill-jam/assets/donate/open-collective-small.svg)](https://opencollective.com/vrillabs)
+[![Ko-fi](ad-skill-jam/assets/donate/ko-fi-small.svg)](https://ko-fi.com/vrillabs)
+[![Buy Me a Coffee](ad-skill-jam/assets/donate/buy-me-a-coffee-small.svg)](https://buymeacoffee.com/vrillabs)
+[![thanks.dev](ad-skill-jam/assets/donate/thanks-dev-small.svg)](https://thanks.dev/u/gh/vril-labs)
 
 ## More from VRIL LABS
 

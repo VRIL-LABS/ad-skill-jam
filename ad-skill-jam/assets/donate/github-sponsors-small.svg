@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="44" viewBox="0 0 168 44" role="img" aria-label="GitHub Sponsors - RECURRING SUPPORT">
+  <defs>
+    <linearGradient id="s0-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121621"/>
+      <stop offset="1" stop-color="#07090D"/>
+    </linearGradient>
+    <linearGradient id="s0-gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.07"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.015"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="s0-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.30"/>
+      <stop offset="0.45" stop-color="#00D9C0" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s0-inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="0.3" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="s0-shimmer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="0.58" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="s0-glow">
+      <stop offset="0" stop-color="#00D9C0" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#00D9C0" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="s0-clip">
+      <rect x="1.5" y="1.5" width="165" height="41" rx="10.5"/>
+    </clipPath>
+    <filter id="s0-soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="s0-bloom" x="-10%" y="-40%" width="120%" height="180%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+  </defs>
+
+  <g clip-path="url(#s0-clip)">
+    <rect x="1.5" y="1.5" width="165" height="41" rx="10.5" fill="url(#s0-bg)"/>
+    <circle cx="20.5" cy="22" r="14" fill="url(#s0-glow)" filter="url(#s0-soft)">
+      <animate attributeName="opacity" values="0.55;1;0.55" dur="3.6s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="1.5" y="1.5" width="165" height="41" fill="url(#s0-gloss)"/>
+    <rect x="1.5" y="1.5" width="165" height="41" fill="url(#s0-shimmer)">
+      <animateTransform attributeName="transform" type="translate" values="-168 0;168 0" dur="7s" begin="-0.0s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- glass rim: outer hairline + inner top highlight -->
+  <rect x="1.5" y="1.5" width="165" height="41" rx="10.5" fill="none" stroke="url(#s0-glass)" stroke-width="1"/>
+  <rect x="2.5" y="2.5" width="163" height="39" rx="9.5" fill="none" stroke="url(#s0-inner)" stroke-width="1"/>
+
+  <!-- light travelling along the rim: soft tail, bloom, bright core -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M12 1.5H156A10.5 10.5 0 0 1 166.5 12V32A10.5 10.5 0 0 1 156 42.5H12A10.5 10.5 0 0 1 1.5 32V12A10.5 10.5 0 0 1 12 1.5Z" pathLength="100" stroke="#00D9C0" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="26 74" filter="url(#s0-bloom)">
+      <animate attributeName="stroke-dashoffset" values="118;18" dur="5.6s" begin="-0.0s" repeatCount="indefinite"/>
+    </path>
+    <path d="M12 1.5H156A10.5 10.5 0 0 1 166.5 12V32A10.5 10.5 0 0 1 156 42.5H12A10.5 10.5 0 0 1 1.5 32V12A10.5 10.5 0 0 1 12 1.5Z" pathLength="100" stroke="#00D9C0" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="12 88" filter="url(#s0-bloom)">
+      <animate attributeName="stroke-dashoffset" values="104;4" dur="5.6s" begin="-0.0s" repeatCount="indefinite"/>
+    </path>
+    <path d="M12 1.5H156A10.5 10.5 0 0 1 166.5 12V32A10.5 10.5 0 0 1 156 42.5H12A10.5 10.5 0 0 1 1.5 32V12A10.5 10.5 0 0 1 12 1.5Z" pathLength="100" stroke="#8CFFF1" stroke-opacity="0.9" stroke-width="0.9" stroke-dasharray="6 94">
+      <animate attributeName="stroke-dashoffset" values="100;0" dur="5.6s" begin="-0.0s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g transform="translate(12.1 13.6) scale(0.7)" fill="none" stroke="#00D9C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </g>
+
+  <text x="36" y="20.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" letter-spacing="-0.15" fill="#EEF2F8">GitHub Sponsors</text>
+  <text x="36" y="31" font-family="ui-monospace, 'SF Mono', 'Fira Code', Consolas, monospace" font-size="6.8" letter-spacing="0.7" fill="#7D8BBA">// RECURRING SUPPORT</text>
+</svg>
