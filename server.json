@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.vril-labs/ad-skill-jam",
+  "name": "io.github.VRIL-LABS/ad-skill-jam",
   "title": "Ad Skill Jam",
   "description": "Read-only campaign inventory and advertising skills for 12 ad platforms.",
   "repository": {
