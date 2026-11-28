@@ -339,7 +339,7 @@ export const campaignSpecs: Record<Platform, CampaignSpec> = {
       if (url.origin !== base.origin || url.pathname !== base.pathname || url.username || url.password || url.hash) invalidResponse();
       return {
         url,
-        headers: { ...bearer(secrets), 'User-Agent': 'ad-skill-jam-mcp/1.1.0' },
+        headers: { ...bearer(secrets), 'User-Agent': 'ad-skill-jam-mcp/1.1.1' },
       };
     },
     parse(body) {

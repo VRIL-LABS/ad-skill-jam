@@ -1,5 +1,6 @@
 version: 2
 updates:
+  # The MCP dependencies are public. Keep this repository off private npm registry overrides.
   - package-ecosystem: npm
     directory: /ad-skill-jam/mcp
     schedule:

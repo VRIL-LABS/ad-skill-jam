@@ -47,6 +47,7 @@ try {
   const manifest = JSON.parse(readFileSync(join(mcp, 'packaging', 'manifest.json'), 'utf8'));
   manifest.version = JSON.parse(readFileSync(join(mcp, 'package.json'), 'utf8')).version;
   writeFileSync(join(stage, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+  cpSync(join(pack, '..', 'LICENSE'), join(stage, 'LICENSE'));
   for (const entry of ['README.md', '_shared', 'ads', 'assets', 'scripts', ...platforms.map(platform => platform + '-ads')]) {
     copyTree(join(pack, entry), join(stagedPack, entry), ['.md', '.json', '.svg', '.py', '.sh', '.ps1']);
   }

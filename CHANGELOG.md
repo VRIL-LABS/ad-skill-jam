@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.1] - 2026-11-27
+
+### Added
+
+- GNU GPL v3 license for Ad Skill Jam and a license copy in the desktop bundle.
+- Release attestations for the desktop bundle and its runtime SBOM.
+
+### Changed
+
+- Generate the release SBOM from packaged runtime dependencies and smoke-test the bundle in CI.
+- Document release-pinned skill setup, credential-free MCP checks, and sample behavior eval results.
+
+### Fixed
+
+- Restored Dependabot access to the public npm registry for MCP dependency updates.
+
 ## [1.1.0] - 2026-11-27
 
 ### Added

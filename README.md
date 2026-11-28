@@ -6,6 +6,7 @@
 [![90 agent skills](https://img.shields.io/badge/skills-90-66439c?style=flat)](ad-skill-jam/README.md)
 [![183 eval fixtures](https://img.shields.io/badge/eval_fixtures-183-66439c?style=flat)](ad-skill-jam/_shared/evals/README.md)
 [![Read-only MCP](https://img.shields.io/badge/MCP-read--only-4f536f?style=flat)](ad-skill-jam/mcp/README.md)
+[![GPL-3.0 license](https://img.shields.io/badge/license-GPL--3.0-4f536f?style=flat)](LICENSE)
 
 **Give your AI agent a paid media playbook for 12 ad platforms.** Ad Skill Jam includes skills for Google Ads, Meta Ads, YouTube Ads, LinkedIn Ads, Reddit Ads, TikTok Ads, X Ads, Snapchat Ads, Pinterest Ads, Microsoft Advertising, Apple Ads, and Amazon Ads. Use them to audit accounts, plan campaigns, and trace drops in conversions back to the evidence.
 
@@ -55,10 +56,10 @@ Run these commands in the project where you want the skills. For linked API ledg
 From your destination project, clone the published release into a subdirectory. Use the skill directly from that checkout so its links to the API ledger, shared guardrails, and related skills resolve at the same revision.
 
 ```sh
-git clone --depth 1 --branch v1.1.0 https://github.com/VRIL-LABS/ad-skill-jam.git ad-skill-jam-v1.1.0
+git clone --depth 1 --branch v1.1.1 https://github.com/VRIL-LABS/ad-skill-jam.git ad-skill-jam-v1.1.1
 ```
 
-Ask your agent to read `ad-skill-jam-v1.1.0/ad-skill-jam/google-ads/google-ads-search-terms/SKILL.md` and review a redacted search-terms export. Give the agent access to the whole checkout. To browse the same release with the Skills CLI, use `npx --yes --ignore-scripts skills@1.9.1 add https://github.com/VRIL-LABS/ad-skill-jam/tree/v1.1.0/ad-skill-jam --list`.
+Ask your agent to read `ad-skill-jam-v1.1.1/ad-skill-jam/google-ads/google-ads-search-terms/SKILL.md` and review a redacted search-terms export. Give the agent access to the whole checkout. To browse the same release with the Skills CLI, use `npx --yes --ignore-scripts skills@1.9.1 add https://github.com/VRIL-LABS/ad-skill-jam/tree/v1.1.1/ad-skill-jam --list`.
 
 </details>
 

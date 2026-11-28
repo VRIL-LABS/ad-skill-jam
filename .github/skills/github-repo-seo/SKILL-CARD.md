@@ -10,7 +10,7 @@ Repository workspace maintained by [VRIL LABS](https://github.com/VRIL-LABS/ad-s
 
 ### License and terms of use
 
-The owner needs to confirm the terms before distributing this skill separately.
+The skill follows the repository's [GNU GPL v3 license](../../../LICENSE).
 
 ## Use Case
 Maintainers and developer teams use the skill to audit, set up, or prepare GitHub repositories for release. <br>
@@ -53,7 +53,7 @@ Initial workspace draft (no independent release assigned) <br>
 | --- | --- | --- |
 | Name and description | Skill frontmatter and workflow | Confirmed |
 | Repository organization | Workspace Git remote | Confirmed for the workspace |
-| Usage and distribution terms | No skill-specific terms declared | Owner review |
+| Usage and distribution terms | Repository LICENSE | Documented |
 | Audience and geographic scope | General repository-maintenance workflow with no geography specified | Inferred |
 | Credentials | Public audit and authenticated GitHub paths documented in SKILL.md | Confirmed |
 | References and output | Local reference files and Deliver section | Confirmed |
