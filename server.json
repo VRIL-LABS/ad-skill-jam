@@ -8,12 +8,12 @@
     "source": "github",
     "subfolder": "ad-skill-jam/mcp"
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/VRIL-LABS/ad-skill-jam/releases/download/v1.1.0/ad-skill-jam.mcpb",
-      "fileSha256": "cd0667711498d13de547214a18e7f1641f4ef64a5bbb1768edf135a89c17e795",
+      "identifier": "https://github.com/VRIL-LABS/ad-skill-jam/releases/download/v1.1.1/ad-skill-jam.mcpb",
+      "fileSha256": "3fa042ad36212c7d5cc1f467a73a645bdbeebe115a0ab62f0ef9078b69d55ac2",
       "transport": {
         "type": "stdio"
       }
